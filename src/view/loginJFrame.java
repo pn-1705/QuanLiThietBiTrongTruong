@@ -176,7 +176,7 @@ public class loginJFrame extends javax.swing.JFrame {
             rs = ps.executeQuery();
 
             if (rs.next()) {
-                homeJFrame home = new homeJFrame();
+                TrangChuJFrame home = new TrangChuJFrame();
                 home.setVisible(true);
                 this.dispose();
                 JOptionPane.showMessageDialog(this, "Đăng nhập thành công");
