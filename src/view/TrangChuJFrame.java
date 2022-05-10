@@ -76,7 +76,6 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
-        jButton21 = new javax.swing.JButton();
         jPanel35 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
@@ -539,7 +538,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         jTabbedPane1.setFocusable(false);
         jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jPanel2.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel2.setBackground(java.awt.Color.gray);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -609,8 +608,6 @@ public class TrangChuJFrame extends javax.swing.JFrame {
 
         jLabel38.setText("Khu Phòng");
 
-        jButton21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_detective_16px.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel34Layout = new javax.swing.GroupLayout(jPanel34);
         jPanel34.setLayout(jPanel34Layout);
         jPanel34Layout.setHorizontalGroup(
@@ -626,18 +623,15 @@ public class TrangChuJFrame extends javax.swing.JFrame {
                     .addComponent(jTextField3)
                     .addComponent(jTextField4)
                     .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jButton21)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
         jPanel34Layout.setVerticalGroup(
             jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel34Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField3)
-                    .addComponent(jLabel37)
-                    .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel37))
                 .addGap(21, 21, 21)
                 .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -646,7 +640,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
                 .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel36)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
 
         jPanel35.setBackground(new java.awt.Color(255, 204, 204));
@@ -670,7 +664,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
             jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel35Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane7)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 1056, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel35Layout.setVerticalGroup(
@@ -687,8 +681,8 @@ public class TrangChuJFrame extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2073,7 +2067,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         );
         jpnQuanLyTaiKhoanLayout.setVerticalGroup(
             jpnQuanLyTaiKhoanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 817, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -2214,7 +2208,6 @@ public class TrangChuJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;

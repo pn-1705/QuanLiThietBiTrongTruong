@@ -598,7 +598,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTabbedPane1" alignment="1" pref="817" max="32767" attributes="0"/>
+                  <Component id="jTabbedPane1" alignment="1" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -627,7 +627,7 @@
                 <Container class="javax.swing.JPanel" name="jPanel2">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="99" red="66" type="rgb"/>
+                      <Color blue="80" green="80" id="gray" palette="1" red="80" type="palette"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -670,8 +670,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jPanel35" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jPanel35" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Component id="jPanel33" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -794,9 +794,7 @@
                                       <Component id="jTextField4" max="32767" attributes="0"/>
                                       <Component id="jTextField5" pref="243" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton21" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="77" max="32767" attributes="0"/>
+                                  <EmptySpace pref="110" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -804,10 +802,9 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jTextField3" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton21" alignment="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -819,7 +816,7 @@
                                       <Component id="jLabel36" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="107" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -846,13 +843,6 @@
                         </Component>
                         <Component class="javax.swing.JTextField" name="jTextField5">
                         </Component>
-                        <Component class="javax.swing.JButton" name="jButton21">
-                          <Properties>
-                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                              <Image iconType="3" name="/img/icons8_detective_16px.png"/>
-                            </Property>
-                          </Properties>
-                        </Component>
                       </SubComponents>
                     </Container>
                     <Container class="javax.swing.JPanel" name="jPanel35">
@@ -867,7 +857,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jScrollPane7" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane7" pref="1056" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
