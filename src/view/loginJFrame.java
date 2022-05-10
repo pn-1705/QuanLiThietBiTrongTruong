@@ -62,6 +62,7 @@ public class loginJFrame extends javax.swing.JFrame {
         btnLogin2.setBackground(new java.awt.Color(0, 102, 255));
         btnLogin2.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         btnLogin2.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin2.setMnemonic('1');
         btnLogin2.setText("Đăng nhập");
         btnLogin2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
