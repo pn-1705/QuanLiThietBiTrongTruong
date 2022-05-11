@@ -447,6 +447,9 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+      <Font name="VNtimes New Roman" size="10" style="0"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -491,20 +494,20 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              <Component id="jpnQuanLyTaiKhoan" alignment="0" max="32767" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel4" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
-              <Component id="jpnQuanLyTaiKhoan" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Component id="jPanel4" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="jpnQuanLyTaiKhoan" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -514,15 +517,17 @@
         <Container class="javax.swing.JPanel" name="jPanel4">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
+              <Color blue="c0" green="c0" id="lightGray" palette="1" red="c0" type="palette"/>
             </Property>
           </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="363" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
@@ -530,18 +535,22 @@
                           </Group>
                           <Component id="jLabel2" alignment="0" min="-2" pref="485" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="363" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel16" min="-2" pref="259" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -549,32 +558,51 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="66" red="0" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="24" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="H&#x1ec6; TH&#x1ed0;NG QU&#x1ea2;N L&#xdd; THI&#x1ebe;T B&#x1eca;"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="66" red="0" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="24" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="TR&#x1af;&#x1edc;NG &#x110;&#x1ea0;I H&#x1ecc;C S&#x1af; PH&#x1ea0;M K&#x1ef8; THU&#x1eac;T"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel16">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\Lenovo\Desktop\QuanLiThietBiTrongTruong\src\img\Logo_&#x110;&#x1ea1;i_h&#x1ecd;c_S&#x1b0;_ph&#x1ea1;m_K&#x1ef9;_thu&#x1ead;t_&#x110;&#xe0;_N&#x1eb5;ng.png"/>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jpnQuanLyTaiKhoan">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
+            </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Default Cursor"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="VNtimes New Roman" size="15" style="1"/>
             </Property>
             <Property name="opaque" type="boolean" value="false"/>
           </Properties>
@@ -593,7 +621,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jTabbedPane1" min="-2" pref="796" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -604,19 +632,17 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
                 </Property>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                    <EtchetBorder/>
-                  </Border>
-                </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="18" style="1"/>
+                  <Font name="Times New Roman" size="18" style="1"/>
                 </Property>
               </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
+              </AccessibilityProperties>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
               <SubComponents>
@@ -630,6 +656,9 @@
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                       <JTabbedPaneConstraints tabName="Trang Ch&#x1ee7;">
                         <Property name="tabTitle" type="java.lang.String" value="Trang Ch&#x1ee7;"/>
+                        <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="2" name="C:\Users\Lenovo\Desktop\QuanLiThietBiTrongTruong\src\img\outline_home_white_24dp.png"/>
+                        </Property>
                       </JTabbedPaneConstraints>
                     </Constraint>
                   </Constraints>
@@ -637,15 +666,40 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="1250" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jPanel8" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="751" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="581" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
+                  <SubComponents>
+                    <Container class="javax.swing.JPanel" name="jPanel8">
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <EmptySpace min="0" pref="1242" max="32767" attributes="0"/>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <EmptySpace min="0" pref="168" max="32767" attributes="0"/>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                    </Container>
+                  </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="jPanel5">
                   <Properties>
@@ -657,6 +711,9 @@
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                       <JTabbedPaneConstraints tabName="Qu&#x1ea3;n L&#xfd; Ph&#xf2;ng">
                         <Property name="tabTitle" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Ph&#xf2;ng"/>
+                        <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="2" name="C:\Users\Lenovo\Desktop\QuanLiThietBiTrongTruong\src\img\outline_meeting_room_white_24dp.png"/>
+                        </Property>
                       </JTabbedPaneConstraints>
                     </Constraint>
                   </Constraints>
@@ -678,7 +735,7 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane7" pref="1238" max="32767" attributes="0"/>
+                              <Component id="jScrollPane7" pref="1242" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -900,6 +957,9 @@
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                       <JTabbedPaneConstraints tabName="Qu&#x1ea3;n L&#xfd; Thi&#x1ebf;t B&#x1ecb;">
                         <Property name="tabTitle" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Thi&#x1ebf;t B&#x1ecb;"/>
+                        <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="2" name="C:\Users\Lenovo\Desktop\QuanLiThietBiTrongTruong\src\img\outline_computer_white_24dp.png"/>
+                        </Property>
                       </JTabbedPaneConstraints>
                     </Constraint>
                   </Constraints>
@@ -924,6 +984,12 @@
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="80" green="80" id="gray" palette="1" red="80" type="palette"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Times New Roman" size="15" style="1"/>
                         </Property>
                       </Properties>
 
@@ -1204,10 +1270,7 @@
                                                       <Component id="jButton65" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace pref="467" max="32767" attributes="0"/>
                                                   </Group>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="jScrollPane14" min="-2" pref="561" max="-2" attributes="0"/>
-                                                  </Group>
+                                                  <Component id="jScrollPane14" alignment="1" min="-2" pref="561" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -2679,7 +2742,7 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jScrollPane4" pref="973" max="32767" attributes="0"/>
+                                                  <Component id="jScrollPane4" pref="977" max="32767" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
@@ -2737,7 +2800,7 @@
                                   <Layout>
                                     <DimensionLayout dim="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jScrollPane5" alignment="0" pref="991" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane5" alignment="0" pref="995" max="32767" attributes="0"/>
                                       </Group>
                                     </DimensionLayout>
                                     <DimensionLayout dim="1">
@@ -2791,7 +2854,7 @@
                                     <DimensionLayout dim="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jScrollPane6" pref="985" max="32767" attributes="0"/>
+                                              <Component id="jScrollPane6" pref="989" max="32767" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -2866,8 +2929,11 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                      <JTabbedPaneConstraints tabName="Qu&#x1ea3;n L&#xfd; T&#xe0;i Kho&#x1ea3;n">
-                        <Property name="tabTitle" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; T&#xe0;i Kho&#x1ea3;n"/>
+                      <JTabbedPaneConstraints tabName="T&#xe0;i Kho&#x1ea3;n">
+                        <Property name="tabTitle" type="java.lang.String" value="T&#xe0;i Kho&#x1ea3;n"/>
+                        <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="2" name="C:\Users\Lenovo\Desktop\QuanLiThietBiTrongTruong\src\img\outline_manage_accounts_white_24dp.png"/>
+                        </Property>
                       </JTabbedPaneConstraints>
                     </Constraint>
                   </Constraints>
@@ -2904,8 +2970,8 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jTabbedPane7" min="-2" pref="533" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="218" max="32767" attributes="0"/>
+                                  <Component id="jTabbedPane7" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2921,6 +2987,7 @@
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Times New Roman" size="18" style="1"/>
                             </Property>
+                            <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
                           </Properties>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
@@ -2994,7 +3061,7 @@
                                                   <Component id="textField22" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="textField23" alignment="0" max="32767" attributes="0"/>
                                               </Group>
-                                              <EmptySpace pref="531" max="32767" attributes="0"/>
+                                              <EmptySpace pref="535" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                     </DimensionLayout>
@@ -3036,7 +3103,7 @@
                                                   <Component id="jButton24" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   <Component id="jButton25" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace pref="97" max="32767" attributes="0"/>
+                                              <EmptySpace pref="313" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                     </DimensionLayout>
@@ -3134,12 +3201,12 @@
                               <Layout>
                                 <DimensionLayout dim="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="1052" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="1056" max="32767" attributes="0"/>
                                   </Group>
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="533" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="749" max="32767" attributes="0"/>
                                   </Group>
                                 </DimensionLayout>
                               </Layout>
@@ -3209,7 +3276,7 @@
                                         <DimensionLayout dim="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="1" attributes="0">
-                                                  <EmptySpace pref="512" max="32767" attributes="0"/>
+                                                  <EmptySpace pref="516" max="32767" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Group type="102" alignment="1" attributes="0">
                                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -3326,7 +3393,7 @@
                                         <DimensionLayout dim="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="1" attributes="0">
-                                                  <EmptySpace pref="596" max="32767" attributes="0"/>
+                                                  <EmptySpace pref="600" max="32767" attributes="0"/>
                                                   <Component id="jLabel54" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
                                               </Group>
@@ -3505,7 +3572,7 @@
                                     <DimensionLayout dim="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace pref="592" max="32767" attributes="0"/>
+                                              <EmptySpace pref="596" max="32767" attributes="0"/>
                                               <Component id="jLabel58" min="-2" pref="276" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
                                           </Group>
