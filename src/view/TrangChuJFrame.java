@@ -581,7 +581,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
                 .addContainerGap(581, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Trang Chủ", null, jPanel2);
+        jTabbedPane1.addTab("Trang Chủ", jPanel2);
 
         jPanel5.setBackground(new java.awt.Color(0, 153, 102));
 
@@ -731,7 +731,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Quản Lý Phòng", null, jPanel5);
+        jTabbedPane1.addTab("Quản Lý Phòng", jPanel5);
 
         jPanel6.setBackground(java.awt.Color.gray);
 
@@ -1685,7 +1685,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Quản Lý Thiết Bị", null, jPanel6);
+        jTabbedPane1.addTab("Quản Lý Thiết Bị", jPanel6);
 
         jPanel7.setBackground(new java.awt.Color(0, 153, 204));
 
@@ -1749,12 +1749,12 @@ public class TrangChuJFrame extends javax.swing.JFrame {
                         .addGap(2, 2, 2)
                         .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel45)
-                            .addComponent(jLabel47)
                             .addComponent(jLabel49)
                             .addComponent(jLabel59)
                             .addComponent(jLabel60)))
                     .addComponent(jLabel48)
-                    .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel47))
                 .addGap(92, 92, 92)
                 .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textField16, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1790,23 +1790,23 @@ public class TrangChuJFrame extends javax.swing.JFrame {
                 .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel60)
                     .addComponent(textField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                .addGap(39, 39, 39)
                 .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel47)
-                    .addComponent(textField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                    .addComponent(textField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel47))
+                .addGap(39, 39, 39)
                 .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel39)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(39, 39, 39)
                 .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel48)
                     .addComponent(textField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addGap(39, 39, 39)
                 .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton24)
                     .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(293, Short.MAX_VALUE))
+                .addContainerGap(277, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel49Layout = new javax.swing.GroupLayout(jPanel49);
@@ -2056,7 +2056,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
             jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel41Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jTabbedPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 1217, Short.MAX_VALUE)
+                .addComponent(jTabbedPane7)
                 .addContainerGap())
         );
         jPanel41Layout.setVerticalGroup(
@@ -2075,7 +2075,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
             .addComponent(jPanel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Tài Khoản", null, jPanel7);
+        jTabbedPane1.addTab("Tài Khoản", jPanel7);
 
         javax.swing.GroupLayout jpnQuanLyTaiKhoanLayout = new javax.swing.GroupLayout(jpnQuanLyTaiKhoan);
         jpnQuanLyTaiKhoan.setLayout(jpnQuanLyTaiKhoanLayout);
