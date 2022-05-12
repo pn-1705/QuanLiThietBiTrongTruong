@@ -2417,11 +2417,9 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox77jComboBox21ActionPerformed
 
-<<<<<<< HEAD
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-=======
     private void jComboBox84jComboBox21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox84jComboBox21ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox84jComboBox21ActionPerformed
@@ -2433,7 +2431,6 @@ public class TrangChuJFrame extends javax.swing.JFrame {
     private void jButton68jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton68jButton17ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton68jButton17ActionPerformed
->>>>>>> ddb6ada89b86485b353a0efa981d2c43a0d67f05
 
     public void TableDanhSachTaiKhoan() {
         defaultTableModel = new DefaultTableModel() {
