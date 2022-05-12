@@ -196,7 +196,8 @@ public class addThietBiJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-      
+        new TrangChuJFrame().setVisible(true);
+        this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBackActionPerformed
 
