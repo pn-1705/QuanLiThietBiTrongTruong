@@ -238,6 +238,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         jButton28 = new javax.swing.JButton();
         jComboBoxCate = new javax.swing.JComboBox<>();
         jComboBoxTrangThai = new javax.swing.JComboBox<>();
+        jButton8 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel41 = new javax.swing.JPanel();
         jTabbedPane7 = new javax.swing.JTabbedPane();
@@ -1172,7 +1173,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 342, Short.MAX_VALUE)
                 .addComponent(jLabelTongThietBi)
                 .addGap(27, 27, 27))
         );
@@ -1206,7 +1207,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 247, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 295, Short.MAX_VALUE)
                 .addComponent(jLabelTBCanTL)
                 .addGap(26, 26, 26))
         );
@@ -1240,7 +1241,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
                 .addComponent(jLabelTBDangSD)
                 .addGap(28, 28, 28))
         );
@@ -1274,7 +1275,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
             .addGroup(jPanel18Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 287, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 335, Short.MAX_VALUE)
                 .addComponent(jLabelTBHuHong)
                 .addGap(27, 27, 27))
         );
@@ -1311,6 +1312,10 @@ public class TrangChuJFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton8.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        jButton8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\QuanLiThietBiTrongTruong\\src\\img\\outline_filter_alt_black_24dp.png")); // NOI18N
+        jButton8.setText("Lọc");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -1318,7 +1323,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel33, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel33, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1339, Short.MAX_VALUE)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jButton27)
@@ -1328,7 +1333,8 @@ public class TrangChuJFrame extends javax.swing.JFrame {
                         .addComponent(jComboBoxCate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBoxTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(84, 84, 84)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton8)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -1341,7 +1347,8 @@ public class TrangChuJFrame extends javax.swing.JFrame {
                     .addComponent(jButton27)
                     .addComponent(jButton28)
                     .addComponent(jComboBoxCate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton8))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
@@ -1416,7 +1423,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
                     .addComponent(textField21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(textField22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(textField23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(603, Short.MAX_VALUE))
+                .addContainerGap(632, Short.MAX_VALUE))
         );
         jPanel50Layout.setVerticalGroup(
             jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1475,7 +1482,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         jPanel46.setLayout(jPanel46Layout);
         jPanel46Layout.setHorizontalGroup(
             jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1124, Short.MAX_VALUE)
+            .addGap(0, 1153, Short.MAX_VALUE)
         );
         jPanel46Layout.setVerticalGroup(
             jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1508,7 +1515,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         jPanel54Layout.setHorizontalGroup(
             jPanel54Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel54Layout.createSequentialGroup()
-                .addContainerGap(584, Short.MAX_VALUE)
+                .addContainerGap(613, Short.MAX_VALUE)
                 .addGroup(jPanel54Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel54Layout.createSequentialGroup()
                         .addGroup(jPanel54Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1562,7 +1569,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         jPanel55Layout.setHorizontalGroup(
             jPanel55Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel55Layout.createSequentialGroup()
-                .addContainerGap(668, Short.MAX_VALUE)
+                .addContainerGap(697, Short.MAX_VALUE)
                 .addComponent(jLabel54)
                 .addGap(250, 250, 250))
         );
@@ -1670,7 +1677,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         jPanel58Layout.setHorizontalGroup(
             jPanel58Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel58Layout.createSequentialGroup()
-                .addContainerGap(664, Short.MAX_VALUE)
+                .addContainerGap(693, Short.MAX_VALUE)
                 .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(184, 184, 184))
         );
@@ -1733,8 +1740,8 @@ public class TrangChuJFrame extends javax.swing.JFrame {
             jPannelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPannelMainLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
         );
         jPannelMainLayout.setVerticalGroup(
             jPannelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1876,6 +1883,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JComboBox<String> jComboBoxCate;

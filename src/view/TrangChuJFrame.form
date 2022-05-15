@@ -603,8 +603,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTabbedPane1" min="-2" pref="1254" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jTabbedPane1" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1600,7 +1600,7 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jPanel33" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jPanel33" alignment="1" pref="1339" max="32767" attributes="0"/>
                                   <Component id="jScrollPane5" alignment="1" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jButton27" min="-2" max="-2" attributes="0"/>
@@ -1610,7 +1610,8 @@
                                       <Component id="jComboBoxCate" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jComboBoxTrangThai" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jButton8" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1628,6 +1629,7 @@
                                   <Component id="jButton28" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jComboBoxCate" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jComboBoxTrangThai" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton8" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jScrollPane5" min="-2" pref="483" max="-2" attributes="0"/>
@@ -1707,7 +1709,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="294" max="32767" attributes="0"/>
+                                      <EmptySpace pref="342" max="32767" attributes="0"/>
                                       <Component id="jLabelTongThietBi" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                   </Group>
@@ -1767,7 +1769,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="247" max="32767" attributes="0"/>
+                                      <EmptySpace pref="295" max="32767" attributes="0"/>
                                       <Component id="jLabelTBCanTL" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                   </Group>
@@ -1827,7 +1829,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                                       <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="178" max="32767" attributes="0"/>
+                                      <EmptySpace pref="226" max="32767" attributes="0"/>
                                       <Component id="jLabelTBDangSD" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                                   </Group>
@@ -1887,7 +1889,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                       <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="287" max="32767" attributes="0"/>
+                                      <EmptySpace pref="335" max="32767" attributes="0"/>
                                       <Component id="jLabelTBHuHong" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                   </Group>
@@ -1991,6 +1993,17 @@
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="jButton8">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="15" style="1"/>
+                        </Property>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="2" name="C:\Users\Lenovo\Desktop\QuanLiThietBiTrongTruong\src\img\outline_filter_alt_black_24dp.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="L&#x1ecd;c"/>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -2131,7 +2144,7 @@
                                                   <Component id="textField22" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="textField23" alignment="0" max="32767" attributes="0"/>
                                               </Group>
-                                              <EmptySpace pref="603" max="32767" attributes="0"/>
+                                              <EmptySpace pref="632" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                     </DimensionLayout>
@@ -2271,7 +2284,7 @@
                               <Layout>
                                 <DimensionLayout dim="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="1124" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="1153" max="32767" attributes="0"/>
                                   </Group>
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
@@ -2346,7 +2359,7 @@
                                         <DimensionLayout dim="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="1" attributes="0">
-                                                  <EmptySpace pref="584" max="32767" attributes="0"/>
+                                                  <EmptySpace pref="613" max="32767" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Group type="102" alignment="1" attributes="0">
                                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -2463,7 +2476,7 @@
                                         <DimensionLayout dim="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="1" attributes="0">
-                                                  <EmptySpace pref="668" max="32767" attributes="0"/>
+                                                  <EmptySpace pref="697" max="32767" attributes="0"/>
                                                   <Component id="jLabel54" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
                                               </Group>
@@ -2642,7 +2655,7 @@
                                     <DimensionLayout dim="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace pref="664" max="32767" attributes="0"/>
+                                              <EmptySpace pref="693" max="32767" attributes="0"/>
                                               <Component id="jLabel58" min="-2" pref="276" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
                                           </Group>
