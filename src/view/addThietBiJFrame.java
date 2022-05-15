@@ -4,17 +4,82 @@
  */
 package view;
 
+import dao.JDBCConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.thietBi;
+import service.deviceService;
+
 /**
  *
  * @author Lenovo
  */
 public class addThietBiJFrame extends javax.swing.JFrame {
 
+    deviceService deviceService;
+    thietBi thietbi;
+
+    List<String> listNSX = new ArrayList<>();
+    List<String> listLoaiTB = new ArrayList<>();
+
     /**
      * Creates new form addThietBiJFrame
      */
     public addThietBiJFrame() {
         initComponents();
+        deviceService = new deviceService();
+        thietbi = new thietBi();
+        Connection connection = JDBCConnection.getJDBCConnection();
+        String sql = "SELECT * FROM nhasanxuat";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet rs = preparedStatement.executeQuery();
+            List<String> listNSX = new ArrayList<>();
+            while (rs.next()) {
+                this.listNSX.add(rs.getString("tenNSX"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        maNSX.removeAllItems();
+        for (String nsx : listNSX) {
+            maNSX.addItem(nsx);
+        }
+
+        String sql1 = "SELECT * FROM loaitb";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql1);
+            ResultSet rs = preparedStatement.executeQuery();
+            List<String> listNSX = new ArrayList<>();
+            List<String> listLoaiTB = new ArrayList<>();
+
+            while (rs.next()) {
+                this.listLoaiTB.add(rs.getString("tenLoai"));
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        maLoaiTB.removeAllItems();
+        for (String nsx : listLoaiTB) {
+            maLoaiTB.addItem(nsx);
+        }
+
+        //ngaySX.setEditable(false);
+        //Date date = new Date();// Return thời gian hiện tại với định dạng rất khó coi
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy"); // Định dạng lại date                                                                                           
+        //ngaySX.setText(sdf.format(date));
+
     }
 
     /**
@@ -44,6 +109,7 @@ public class addThietBiJFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         maLoaiTB = new javax.swing.JComboBox<>();
         maNSX = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Nhập thiết bị");
@@ -64,6 +130,7 @@ public class addThietBiJFrame extends javax.swing.JFrame {
 
         jLabel2.setText("Mã thiết bị:");
 
+        ngaySX.setToolTipText("");
         ngaySX.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         maTB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -112,6 +179,8 @@ public class addThietBiJFrame extends javax.swing.JFrame {
         maNSX.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         maNSX.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jLabel7.setText("ex: 17-05-2002");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -135,20 +204,23 @@ public class addThietBiJFrame extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(maTB, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
+                            .addComponent(maTB)
                             .addComponent(tenTB)
                             .addComponent(soLuong)
-                            .addComponent(ngaySX)
                             .addComponent(donGia)
                             .addComponent(maLoaiTB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(maNSX, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(59, Short.MAX_VALUE))
+                            .addComponent(maNSX, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(ngaySX, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel7)))))
+                .addContainerGap(33, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAddProduct)
-                .addGap(76, 76, 76))
+                .addGap(78, 78, 78))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,7 +248,8 @@ public class addThietBiJFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(ngaySX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ngaySX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -185,24 +258,55 @@ public class addThietBiJFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(donGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addGap(36, 36, 36)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddProduct)
                     .addComponent(jButton1))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        new TrangChuJFrame().setVisible(true);
+        try {
+            new TrangChuJFrame().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(addThietBiJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
-        // TODO add your handling code here:
+//        String id = maphong.getText();
+//        int ma = Integer.parseInt(id);
+        thietbi.setMaTB(maTB.getText());
+        thietbi.setTenTB(tenTB.getText());
+
+        thietbi.setLoaiTB(String.valueOf(maLoaiTB.getSelectedItem()));
+        thietbi.setNSX(String.valueOf(maNSX.getSelectedItem()));
+//        String id = ngaySX.getText();
+//        int ma = Date.valueOf(id);
+//        thietbi.setNgaySX(ngaySX.getText());
+        String sl = soLuong.getText();
+        int sL = Integer.parseInt(sl);
+        thietbi.setSoLuong(sL);
+
+        String g = donGia.getText();
+        int gia = Integer.parseInt(g);
+        thietbi.setGia(gia);
+
+        thietbi.setTrangThai("Còn trong kho");
+
+        deviceService.adddevice(thietbi);
+
+        try {
+            new TrangChuJFrame().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(addThietBiJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.dispose();
     }//GEN-LAST:event_btnAddProductActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -214,7 +318,7 @@ public class addThietBiJFrame extends javax.swing.JFrame {
         ngaySX.setText("");
         soLuong.setText("");
         donGia.setText("");
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -263,6 +367,7 @@ public class addThietBiJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JComboBox<String> maLoaiTB;
     private javax.swing.JComboBox<String> maNSX;
