@@ -6,9 +6,11 @@ package view;
 
 import dao.JDBCConnection;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +65,7 @@ public class addThietBiJFrame extends javax.swing.JFrame {
             List<String> listLoaiTB = new ArrayList<>();
 
             while (rs.next()) {
-                this.listLoaiTB.add(rs.getString("tenLoai"));
+                this.listLoaiTB.add(rs.getString("loaiTB"));
 
             }
         } catch (SQLException e) {
@@ -74,12 +76,6 @@ public class addThietBiJFrame extends javax.swing.JFrame {
         for (String nsx : listLoaiTB) {
             maLoaiTB.addItem(nsx);
         }
-
-        //ngaySX.setEditable(false);
-        //Date date = new Date();// Return thời gian hiện tại với định dạng rất khó coi
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy"); // Định dạng lại date                                                                                           
-        //ngaySX.setText(sdf.format(date));
-
     }
 
     /**
@@ -179,7 +175,7 @@ public class addThietBiJFrame extends javax.swing.JFrame {
         maNSX.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         maNSX.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel7.setText("ex: 17-05-2002");
+        jLabel7.setText("ex: 17/05/2002");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -279,16 +275,19 @@ public class addThietBiJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
-//        String id = maphong.getText();
-//        int ma = Integer.parseInt(id);
         thietbi.setMaTB(maTB.getText());
         thietbi.setTenTB(tenTB.getText());
 
-        thietbi.setLoaiTB(String.valueOf(maLoaiTB.getSelectedItem()));
-        thietbi.setNSX(String.valueOf(maNSX.getSelectedItem()));
-//        String id = ngaySX.getText();
-//        int ma = Date.valueOf(id);
-//        thietbi.setNgaySX(ngaySX.getText());
+        thietbi.setLoaiTB(maLoaiTB.getSelectedIndex());
+        thietbi.setNSX(maNSX.getSelectedIndex());
+        
+//        try {
+//            thietbi.setNgaySX((Date) new SimpleDateFormat("dd/MM/yyyy").parse(ngaySX.getText()));
+//        } catch (ParseException ex) {
+//            ex.printStackTrace();
+//        }
+
+
         String sl = soLuong.getText();
         int sL = Integer.parseInt(sl);
         thietbi.setSoLuong(sL);
@@ -297,7 +296,8 @@ public class addThietBiJFrame extends javax.swing.JFrame {
         int gia = Integer.parseInt(g);
         thietbi.setGia(gia);
 
-        thietbi.setTrangThai("Còn trong kho");
+        thietbi.setTrangThai(0);
+        thietbi.setId_phong(0);
 
         deviceService.adddevice(thietbi);
 

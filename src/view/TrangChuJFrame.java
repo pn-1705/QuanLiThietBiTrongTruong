@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.thietBi;
 import service.deviceService;
@@ -37,7 +38,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         DefaultTableModel defaultTableModel1 = new DefaultTableModel();
 
         jTable1.setModel(defaultTableModel1);
-        
+
         jtableDevice.setModel(defaultTableModel);
         defaultTableModel.addColumn("Mã thiết bị");
         defaultTableModel.addColumn("Tên thiết bị");
@@ -46,16 +47,19 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         defaultTableModel.addColumn("Loại thiết bị");
         defaultTableModel.addColumn("Nhà sản xuất");
         //defaultTableModel.addColumn("Ngày sản xuất");
+        defaultTableModel.addColumn("Phòng");
         defaultTableModel.addColumn("Trạng thái");
 
         List<thietBi> devices = deviceService.getAllthietbi();
 
         for (thietBi thietBi : devices) {
             defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
-                thietBi.getSoLuong(), thietBi.getGia(), thietBi.getLoaiTB(), thietBi.getNSX(), thietBi.getTrangThai()});
+                thietBi.getSoLuong(), thietBi.getGia(), thietBi.getLoaiTB(), thietBi.getNSX(), thietBi.getId_phong(),
+                deviceService.viewTT(thietBi.getTrangThai())});
             defaultTableModel1.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
-                thietBi.getSoLuong(), thietBi.getGia(), thietBi.getLoaiTB(), thietBi.getNSX(), thietBi.getTrangThai()});
+                thietBi.getSoLuong(), thietBi.getGia(), thietBi.getLoaiTB(), thietBi.getNSX(), thietBi.getId_phong(), thietBi.getTrangThai()});
         }
+
         int sumTB = deviceService.sumTB();
         jLabelTongThietBi.setText("" + sumTB);
 
@@ -68,6 +72,12 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         int sumTBHuHong = deviceService.sumTBHuHong();
         jLabelTBHuHong.setText("" + sumTBHuHong);
 
+        int sumTBSS = deviceService.sumTBDangRanh();
+        jLabelTBSS.setText("" + sumTBSS);
+
+        int sumTBQH = deviceService.sumTBQuaHan();
+        jLabelTBQuaHan.setText("" + sumTBQH);
+
         //Tạo combobox danh mục sản phẩm
         Connection connection = JDBCConnection.getJDBCConnection();
         String sql = "SELECT * FROM loaitb";
@@ -77,13 +87,13 @@ public class TrangChuJFrame extends javax.swing.JFrame {
             ResultSet rs = preparedStatement.executeQuery();
             List<String> listCate = new ArrayList<>();
             while (rs.next()) {
-                this.listCate.add(rs.getString("tenLoai"));
+                this.listCate.add(rs.getString("loaiTB"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         jComboBoxCate.removeAllItems();
-        jComboBoxCate.addItem("ALL");
+        jComboBoxCate.addItem("Danh mục");
         for (String l : listCate) {
             jComboBoxCate.addItem(l);
         }
@@ -102,17 +112,16 @@ public class TrangChuJFrame extends javax.swing.JFrame {
             e.printStackTrace();
         }
         jComboBoxTrangThai.removeAllItems();
-        jComboBoxTrangThai.addItem("ALL");
+        jComboBoxTrangThai.addItem("Trạng thái");
         for (String tt : listTT) {
             jComboBoxTrangThai.addItem(tt);
         }
-
     }
 
     private void setTableData(List<thietBi> devices) {
         for (thietBi thietBi : devices) {
             defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
-                thietBi.getSoLuong(), thietBi.getGia(), thietBi.getLoaiTB(), thietBi.getNSX(), thietBi.getTrangThai()});
+                thietBi.getSoLuong(), thietBi.getGia(), thietBi.getLoaiTB(), thietBi.getNSX(), thietBi.getId_phong(), thietBi.getTrangThai()});
         }
     }
 
@@ -231,7 +240,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         jLabelTBDangSD = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
-        jLabelTBDangSD1 = new javax.swing.JLabel();
+        jLabelTBSS = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabelTBCanTL = new javax.swing.JLabel();
@@ -240,14 +249,14 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         jLabelTBHuHong = new javax.swing.JLabel();
         jPanel17 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        jLabelTBCanTL1 = new javax.swing.JLabel();
+        jLabelTBQuaHan = new javax.swing.JLabel();
         jButton28 = new javax.swing.JButton();
         jComboBoxCate = new javax.swing.JComboBox<>();
         jComboBoxTrangThai = new javax.swing.JComboBox<>();
-        jButton8 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jPanel41 = new javax.swing.JPanel();
         jTabbedPane7 = new javax.swing.JTabbedPane();
@@ -1111,7 +1120,9 @@ public class TrangChuJFrame extends javax.swing.JFrame {
 
         jtableDevice.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jtableDevice.setFont(new java.awt.Font("Segoe UI", 1, 17)); // NOI18N
+        jtableDevice.setEnabled(false);
         jtableDevice.setRowHeight(30);
+        jtableDevice.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane5.setViewportView(jtableDevice);
 
         jPanel33.setBackground(java.awt.Color.gray);
@@ -1197,9 +1208,9 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         jLabel18.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\QuanLiThietBiTrongTruong\\src\\img\\outline_screen_search_desktop_white_24dp.png")); // NOI18N
         jLabel18.setText("THIẾT BỊ SẴN SÀNG:");
 
-        jLabelTBDangSD1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabelTBDangSD1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTBDangSD1.setText("10");
+        jLabelTBSS.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelTBSS.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTBSS.setText("10");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -1209,7 +1220,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
                 .addGap(73, 73, 73)
-                .addComponent(jLabelTBDangSD1)
+                .addComponent(jLabelTBSS)
                 .addGap(27, 27, 27))
         );
         jPanel4Layout.setVerticalGroup(
@@ -1218,7 +1229,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelTBDangSD1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabelTBSS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(37, 37, 37))
         );
 
@@ -1304,9 +1315,9 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         jLabel17.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\QuanLiThietBiTrongTruong\\src\\img\\outline_cancel_presentation_white_24dp.png")); // NOI18N
         jLabel17.setText("THIẾT BỊ CẦN QUÁ HẠN:");
 
-        jLabelTBCanTL1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabelTBCanTL1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTBCanTL1.setText("8");
+        jLabelTBQuaHan.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelTBQuaHan.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTBQuaHan.setText("8");
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -1316,7 +1327,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(113, 113, 113)
-                .addComponent(jLabelTBCanTL1)
+                .addComponent(jLabelTBQuaHan)
                 .addGap(30, 30, 30))
         );
         jPanel17Layout.setVerticalGroup(
@@ -1325,7 +1336,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelTBCanTL1))
+                    .addComponent(jLabelTBQuaHan))
                 .addGap(38, 38, 38))
         );
 
@@ -1343,6 +1354,11 @@ public class TrangChuJFrame extends javax.swing.JFrame {
 
         jComboBoxCate.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jComboBoxCate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxCate.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxCateItemStateChanged(evt);
+            }
+        });
         jComboBoxCate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxCateActionPerformed(evt);
@@ -1351,15 +1367,16 @@ public class TrangChuJFrame extends javax.swing.JFrame {
 
         jComboBoxTrangThai.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jComboBoxTrangThai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxTrangThai.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxTrangThaiItemStateChanged(evt);
+            }
+        });
         jComboBoxTrangThai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxTrangThaiActionPerformed(evt);
             }
         });
-
-        jButton8.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        jButton8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\QuanLiThietBiTrongTruong\\src\\img\\outline_filter_alt_black_24dp.png")); // NOI18N
-        jButton8.setText("Lọc");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1379,6 +1396,10 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("THỐNG KÊ THIẾT BỊ TỪNG PHÒNG");
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\QuanLiThietBiTrongTruong\\src\\img\\outline_filter_alt_black_24dp.png")); // NOI18N
+        jLabel2.setText("BỘ LỌC");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -1388,17 +1409,17 @@ public class TrangChuJFrame extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
+                            .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton28)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jComboBoxCate, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBoxTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton8))
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 944, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jComboBoxTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 944, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
@@ -1414,15 +1435,17 @@ public class TrangChuJFrame extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 20, Short.MAX_VALUE)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton27, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton28, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBoxTrangThai, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jComboBoxCate, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jButton27, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton28, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jComboBoxTrangThai, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBoxCate)
+                            .addComponent(jLabel2))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
@@ -1852,7 +1875,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
         defaultTableModel.setRowCount(0);
-        setTableData(deviceService.getAllthietbi());
+        //setTableData(deviceService.getAllthietbi());
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void jComboBoxTrangThaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTrangThaiActionPerformed
@@ -1861,7 +1884,225 @@ public class TrangChuJFrame extends javax.swing.JFrame {
 
     private void jComboBoxCateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCateActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_jComboBoxCateActionPerformed
+
+    private void jComboBoxCateItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxCateItemStateChanged
+        // TODO add your handling code here:
+        int tt = jComboBoxTrangThai.getSelectedIndex();
+        int id_loai = jComboBoxCate.getSelectedIndex();
+
+        DefaultTableModel defaultTableModel = new DefaultTableModel();
+
+        if (tt == 0 && id_loai == 0) {
+            jtableDevice.setModel(defaultTableModel);
+            defaultTableModel.addColumn("Mã thiết bị");
+            defaultTableModel.addColumn("Tên thiết bị");
+            defaultTableModel.addColumn("Số lượng");
+            defaultTableModel.addColumn("Đơn giá");
+            defaultTableModel.addColumn("Loại thiết bị");
+            defaultTableModel.addColumn("Nhà sản xuất");
+            //defaultTableModel.addColumn("Ngày sản xuất");
+            defaultTableModel.addColumn("Phòng");
+            defaultTableModel.addColumn("Trạng thái");
+
+            List<thietBi> devices = deviceService.getAllthietbi();
+
+            for (thietBi thietBi : devices) {
+                defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
+                    thietBi.getSoLuong(), thietBi.getGia(),
+                    deviceService.viewLTB(thietBi.getLoaiTB()),
+                    deviceService.viewNSX(thietBi.getNSX()),
+                    thietBi.getId_phong(),
+                    deviceService.viewTT(thietBi.getTrangThai())
+                }
+                );
+            }
+        } else {
+
+            if (tt == 0 && id_loai != 0) {
+                jtableDevice.setModel(defaultTableModel);
+                defaultTableModel.addColumn("Mã thiết bị");
+                defaultTableModel.addColumn("Tên thiết bị");
+                defaultTableModel.addColumn("Số lượng");
+                defaultTableModel.addColumn("Đơn giá");
+                defaultTableModel.addColumn("Loại thiết bị");
+                defaultTableModel.addColumn("Nhà sản xuất");
+                //defaultTableModel.addColumn("Ngày sản xuất");
+                defaultTableModel.addColumn("Phòng");
+                defaultTableModel.addColumn("Trạng thái");
+
+                List<thietBi> devices = deviceService.getFilterLTB(id_loai);
+
+                for (thietBi thietBi : devices) {
+                    defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
+                        thietBi.getSoLuong(), thietBi.getGia(),
+                        deviceService.viewLTB(thietBi.getLoaiTB()),
+                        deviceService.viewNSX(thietBi.getNSX()),
+                        thietBi.getId_phong(),
+                        deviceService.viewTT(thietBi.getTrangThai())
+                    }
+                    );
+                }
+            } else {
+                if (tt != 0 && id_loai == 0) {
+                    jtableDevice.setModel(defaultTableModel);
+                    defaultTableModel.addColumn("Mã thiết bị");
+                    defaultTableModel.addColumn("Tên thiết bị");
+                    defaultTableModel.addColumn("Số lượng");
+                    defaultTableModel.addColumn("Đơn giá");
+                    defaultTableModel.addColumn("Loại thiết bị");
+                    defaultTableModel.addColumn("Nhà sản xuất");
+                    //defaultTableModel.addColumn("Ngày sản xuất");
+                    defaultTableModel.addColumn("Phòng");
+                    defaultTableModel.addColumn("Trạng thái");
+
+                    List<thietBi> devices = deviceService.getFilterTTTB(tt);
+
+                    for (thietBi thietBi : devices) {
+                        defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
+                            thietBi.getSoLuong(), thietBi.getGia(), thietBi.getLoaiTB(), thietBi.getNSX(), thietBi.getId_phong(),
+                            deviceService.viewTT(thietBi.getTrangThai())});
+                    }
+                } else {
+                    jtableDevice.setModel(defaultTableModel);
+                    defaultTableModel.addColumn("Mã thiết bị");
+                    defaultTableModel.addColumn("Tên thiết bị");
+                    defaultTableModel.addColumn("Số lượng");
+                    defaultTableModel.addColumn("Đơn giá");
+                    defaultTableModel.addColumn("Loại thiết bị");
+                    defaultTableModel.addColumn("Nhà sản xuất");
+                    //defaultTableModel.addColumn("Ngày sản xuất");
+                    defaultTableModel.addColumn("Phòng");
+                    defaultTableModel.addColumn("Trạng thái");
+
+                    List<thietBi> devices = deviceService.getFilterTB(tt, id_loai);
+
+                    for (thietBi thietBi : devices) {
+                        defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
+                            thietBi.getSoLuong(), thietBi.getGia(),
+                            deviceService.viewLTB(thietBi.getLoaiTB()),
+                            deviceService.viewNSX(thietBi.getNSX()),
+                            thietBi.getId_phong(),
+                            deviceService.viewTT(thietBi.getTrangThai())
+                        }
+                        );
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_jComboBoxCateItemStateChanged
+
+    private void jComboBoxTrangThaiItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxTrangThaiItemStateChanged
+        // TODO add your handling code here:
+        int tt = jComboBoxTrangThai.getSelectedIndex();
+        int id_loai = jComboBoxCate.getSelectedIndex();
+
+        DefaultTableModel defaultTableModel = new DefaultTableModel();
+
+        if (tt == 0 && id_loai == 0) {
+            jtableDevice.setModel(defaultTableModel);
+            defaultTableModel.addColumn("Mã thiết bị");
+            defaultTableModel.addColumn("Tên thiết bị");
+            defaultTableModel.addColumn("Số lượng");
+            defaultTableModel.addColumn("Đơn giá");
+            defaultTableModel.addColumn("Loại thiết bị");
+            defaultTableModel.addColumn("Nhà sản xuất");
+            //defaultTableModel.addColumn("Ngày sản xuất");
+            defaultTableModel.addColumn("Phòng");
+            defaultTableModel.addColumn("Trạng thái");
+
+            List<thietBi> devices = deviceService.getAllthietbi();
+
+            for (thietBi thietBi : devices) {
+                defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
+                    thietBi.getSoLuong(), thietBi.getGia(),
+                    deviceService.viewLTB(thietBi.getLoaiTB()),
+                    deviceService.viewNSX(thietBi.getNSX()),
+                    thietBi.getId_phong(),
+                    deviceService.viewTT(thietBi.getTrangThai())
+                }
+                );
+            }
+        } else {
+
+            if (tt == 0 && id_loai != 0) {
+                jtableDevice.setModel(defaultTableModel);
+                defaultTableModel.addColumn("Mã thiết bị");
+                defaultTableModel.addColumn("Tên thiết bị");
+                defaultTableModel.addColumn("Số lượng");
+                defaultTableModel.addColumn("Đơn giá");
+                defaultTableModel.addColumn("Loại thiết bị");
+                defaultTableModel.addColumn("Nhà sản xuất");
+                //defaultTableModel.addColumn("Ngày sản xuất");
+                defaultTableModel.addColumn("Phòng");
+                defaultTableModel.addColumn("Trạng thái");
+
+                List<thietBi> devices = deviceService.getFilterLTB(id_loai);
+
+                for (thietBi thietBi : devices) {
+                    defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
+                        thietBi.getSoLuong(), thietBi.getGia(),
+                        deviceService.viewLTB(thietBi.getLoaiTB()),
+                        deviceService.viewNSX(thietBi.getNSX()),
+                        thietBi.getId_phong(),
+                        deviceService.viewTT(thietBi.getTrangThai())
+                    }
+                    );
+                }
+            } else {
+                if (tt != 0 && id_loai == 0) {
+                    jtableDevice.setModel(defaultTableModel);
+                    defaultTableModel.addColumn("Mã thiết bị");
+                    defaultTableModel.addColumn("Tên thiết bị");
+                    defaultTableModel.addColumn("Số lượng");
+                    defaultTableModel.addColumn("Đơn giá");
+                    defaultTableModel.addColumn("Loại thiết bị");
+                    defaultTableModel.addColumn("Nhà sản xuất");
+                    //defaultTableModel.addColumn("Ngày sản xuất");
+                    defaultTableModel.addColumn("Phòng");
+                    defaultTableModel.addColumn("Trạng thái");
+
+                    List<thietBi> devices = deviceService.getFilterTTTB(tt);
+
+                    for (thietBi thietBi : devices) {
+                        defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
+                            thietBi.getSoLuong(), thietBi.getGia(),
+                            deviceService.viewLTB(thietBi.getLoaiTB()),
+                            deviceService.viewNSX(thietBi.getNSX()),
+                            thietBi.getId_phong(),
+                            deviceService.viewTT(thietBi.getTrangThai())
+                        }
+                        );
+                    }
+                } else {
+                    jtableDevice.setModel(defaultTableModel);
+                    defaultTableModel.addColumn("Mã thiết bị");
+                    defaultTableModel.addColumn("Tên thiết bị");
+                    defaultTableModel.addColumn("Số lượng");
+                    defaultTableModel.addColumn("Đơn giá");
+                    defaultTableModel.addColumn("Loại thiết bị");
+                    defaultTableModel.addColumn("Nhà sản xuất");
+                    //defaultTableModel.addColumn("Ngày sản xuất");
+                    defaultTableModel.addColumn("Phòng");
+                    defaultTableModel.addColumn("Trạng thái");
+
+                    List<thietBi> devices = deviceService.getFilterTB(tt, id_loai);
+
+                    for (thietBi thietBi : devices) {
+                        defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
+                            thietBi.getSoLuong(), thietBi.getGia(),
+                            deviceService.viewLTB(thietBi.getLoaiTB()),
+                            deviceService.viewNSX(thietBi.getNSX()),
+                            thietBi.getId_phong(),
+                            deviceService.viewTT(thietBi.getTrangThai())
+                        }
+                        );
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_jComboBoxTrangThaiItemStateChanged
 
     public void TableDanhSachTaiKhoan() {
         defaultTableModel = new DefaultTableModel() {
@@ -1938,7 +2179,6 @@ public class TrangChuJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JComboBox<String> jComboBoxCate;
@@ -1953,6 +2193,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
@@ -1998,10 +2239,10 @@ public class TrangChuJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelTBCanTL;
-    private javax.swing.JLabel jLabelTBCanTL1;
     private javax.swing.JLabel jLabelTBDangSD;
-    private javax.swing.JLabel jLabelTBDangSD1;
     private javax.swing.JLabel jLabelTBHuHong;
+    private javax.swing.JLabel jLabelTBQuaHan;
+    private javax.swing.JLabel jLabelTBSS;
     private javax.swing.JLabel jLabelTongThietBi;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;

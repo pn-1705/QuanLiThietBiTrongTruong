@@ -31,13 +31,111 @@ public class deviceDao {
                 thietBi thietbi = new thietBi();
 
                 thietbi.setMaTB(rs.getString("maTB"));
-                thietbi.setLoaiTB(rs.getString("loaiTB"));
+                thietbi.setLoaiTB(rs.getInt("id_loaiTB"));
                 thietbi.setTenTB(rs.getString("tenTB"));
-                thietbi.setNSX(rs.getString("NSX"));
-//                thietbi.setNgaySX(rs.getDate("ngaySX"));
+                thietbi.setNSX(rs.getInt("id_NSX"));
+                //thietbi.setNgaySX(rs.getDate("ngaySX"));
                 thietbi.setSoLuong(rs.getInt("soLuong"));
                 thietbi.setGia(rs.getInt("gia"));
-                thietbi.setTrangThai(rs.getString("trangThai"));
+                thietbi.setId_phong(rs.getInt("id_phong"));
+                thietbi.setTrangThai(rs.getInt("id_trangThai"));
+
+                thietbis.add(thietbi);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return thietbis;
+    }
+
+    public List<thietBi> getFilterTB(int id_trangThai, int id_loaiTB) {
+        List<thietBi> thietbis = new ArrayList<>();
+        Connection connection = JDBCConnection.getJDBCConnection();
+        String sql = "SELECT * FROM thietbi where id_trangThai = ? and id_loaiTB =?";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id_trangThai);
+            preparedStatement.setInt(2, id_loaiTB);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                thietBi thietbi = new thietBi();
+
+                thietbi.setMaTB(rs.getString("maTB"));
+                thietbi.setLoaiTB(rs.getInt("id_loaiTB"));
+                thietbi.setTenTB(rs.getString("tenTB"));
+                thietbi.setNSX(rs.getInt("id_NSX"));
+                //thietbi.setNgaySX(rs.getDate("ngaySX"));
+                thietbi.setSoLuong(rs.getInt("soLuong"));
+                thietbi.setGia(rs.getInt("gia"));
+                thietbi.setId_phong(rs.getInt("id_phong"));
+                thietbi.setTrangThai(rs.getInt("id_trangThai"));
+
+                thietbis.add(thietbi);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return thietbis;
+    }
+
+    public List<thietBi> getFilterTTTB(int id_trangThai) {
+        List<thietBi> thietbis = new ArrayList<>();
+        Connection connection = JDBCConnection.getJDBCConnection();
+        String sql = "SELECT * FROM thietbi where id_trangThai = ?";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id_trangThai);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                thietBi thietbi = new thietBi();
+
+                thietbi.setMaTB(rs.getString("maTB"));
+                thietbi.setLoaiTB(rs.getInt("id_loaiTB"));
+                thietbi.setTenTB(rs.getString("tenTB"));
+                thietbi.setNSX(rs.getInt("id_NSX"));
+                //thietbi.setNgaySX(rs.getDate("ngaySX"));
+                thietbi.setSoLuong(rs.getInt("soLuong"));
+                thietbi.setGia(rs.getInt("gia"));
+                thietbi.setId_phong(rs.getInt("id_phong"));
+                thietbi.setTrangThai(rs.getInt("id_trangThai"));
+
+                thietbis.add(thietbi);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return thietbis;
+    }
+
+    public List<thietBi> getFilterLTB(int id_loaiTB) {
+        List<thietBi> thietbis = new ArrayList<>();
+        Connection connection = JDBCConnection.getJDBCConnection();
+        String sql = "SELECT * FROM thietbi where id_loaiTB =?";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id_loaiTB);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                thietBi thietbi = new thietBi();
+
+                thietbi.setMaTB(rs.getString("maTB"));
+                thietbi.setLoaiTB(rs.getInt("id_loaiTB"));
+                thietbi.setTenTB(rs.getString("tenTB"));
+                thietbi.setNSX(rs.getInt("id_NSX"));
+                //thietbi.setNgaySX(rs.getDate("ngaySX"));
+                thietbi.setSoLuong(rs.getInt("soLuong"));
+                thietbi.setGia(rs.getInt("gia"));
+                thietbi.setId_phong(rs.getInt("id_phong"));
+                thietbi.setTrangThai(rs.getInt("id_trangThai"));
 
                 thietbis.add(thietbi);
             }
@@ -68,8 +166,8 @@ public class deviceDao {
 
     public int sumTBDangSD() throws SQLException {
         Connection connection = JDBCConnection.getJDBCConnection();
-        
-        String sql = "SELECT count(maTB) FROM thietbi where trangThai = 1";
+
+        String sql = "SELECT count(maTB) FROM thietbi where id_trangThai = 1";
 
         int num = 0;
         try {
@@ -87,7 +185,25 @@ public class deviceDao {
 
     public int sumTBCanTL() throws SQLException {
         Connection connection = JDBCConnection.getJDBCConnection();
-        String sql = "SELECT count(maTB) FROM thietbi where trangThai =2";
+        String sql = "SELECT count(maTB) FROM thietbi where id_trangThai =2";
+
+        int num = 0;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                num = (rs.getInt(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return num;
+    }
+
+    public int sumTBDangRanh() throws SQLException {
+        Connection connection = JDBCConnection.getJDBCConnection();
+        String sql = "SELECT count(maTB) FROM thietbi where id_trangThai =0";
 
         int num = 0;
         try {
@@ -105,7 +221,7 @@ public class deviceDao {
 
     public int sumTBHuHong() throws SQLException {
         Connection connection = JDBCConnection.getJDBCConnection();
-        String sql = "SELECT count(maTB) FROM thietbi where trangThai = 3";
+        String sql = "SELECT count(maTB) FROM thietbi where id_trangThai = 4";
 
         int num = 0;
         try {
@@ -119,6 +235,83 @@ public class deviceDao {
             e.printStackTrace();
         }
         return num;
+    }
+
+    public int sumTBQuaHan() throws SQLException {
+        Connection connection = JDBCConnection.getJDBCConnection();
+        String sql = "SELECT count(maTB) FROM thietbi where id_trangThai = 3";
+
+        int num = 0;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                num = (rs.getInt(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return num;
+    }
+
+    public String viewTT(int id_trangThai) {
+        Connection connection = JDBCConnection.getJDBCConnection();
+        String sql = "SELECT trangThai FROM trangthai where id = ?";
+
+        String tt = null;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id_trangThai);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                tt = rs.getString("trangThai");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return tt;
+    }
+
+    public String viewNSX(int id) {
+        Connection connection = JDBCConnection.getJDBCConnection();
+        String sql = "SELECT tenNSX FROM nhasanxuat where id = ?";
+
+        String tt = null;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                tt = rs.getString("tenNSX");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return tt;
+    }
+
+    public String viewLTB(int id) {
+        Connection connection = JDBCConnection.getJDBCConnection();
+        String sql = "SELECT loaiTB FROM loaitb where id = ?";
+
+        String tt = null;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                tt = rs.getString("loaiTB");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return tt;
     }
 
 //    public thietbi getthietbiID(int mathietbi) {
@@ -153,18 +346,19 @@ public class deviceDao {
 //
     public void addthietbi(thietBi thietbi) {
         Connection connection = JDBCConnection.getJDBCConnection();
-        String sql = "INSERT INTO thietbi(maTB,loaiTB,tenTB, NSX, soLuong, gia, trangThai) VALUES (?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO thietbi(maTB, id_loaiTB, tenTB, id_NSX, soLuong, gia, id_phong, id_trangThai) VALUES (?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setString(1, thietbi.getMaTB());
-            preparedStatement.setString(2, thietbi.getLoaiTB());
+            preparedStatement.setInt(2, thietbi.getLoaiTB());
             preparedStatement.setString(3, thietbi.getTenTB());
-            preparedStatement.setString(4, thietbi.getNSX());
+            preparedStatement.setInt(4, thietbi.getNSX());
             //preparedStatement.setDate(5, thietbi.getNgaySX());
             preparedStatement.setInt(5, thietbi.getSoLuong());
             preparedStatement.setInt(6, thietbi.getGia());
-            preparedStatement.setString(7, thietbi.getTrangThai());
+            preparedStatement.setInt(7, thietbi.getId_phong());
+            preparedStatement.setInt(8, thietbi.getTrangThai());
 
             int rs = preparedStatement.executeUpdate();
             System.out.println(rs);
@@ -174,28 +368,29 @@ public class deviceDao {
         }
 
     }
-    public void updatethietbi(thietBi thietbi) {
-        Connection connection = JDBCConnection.getJDBCConnection();
-        String sql = "UPDATE thietbi SET loaiTB = ?,tenTB = ?, NSX = ?, soLuong = ?, gia = ?, trangThai = ? where ma =?";
 
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
-            preparedStatement.setString(1, thietbi.getLoaiTB());
-            preparedStatement.setString(2, thietbi.getTenTB());
-            preparedStatement.setString(3, thietbi.getNSX());
-            //preparedStatement.setDate(4, thietbi.getNgaySX());
-            preparedStatement.setInt(4, thietbi.getSoLuong());
-            preparedStatement.setInt(5, thietbi.getGia());
-            preparedStatement.setString(6, thietbi.getTrangThai());
-
-            int rs = preparedStatement.executeUpdate();
-            System.out.println(rs);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void updatethietbi(thietBi thietbi) {
+//        Connection connection = JDBCConnection.getJDBCConnection();
+//        String sql = "UPDATE thietbi SET id_loaiTB = ?,tenTB = ?, NSX = ?, soLuong = ?, gia = ?, trangThai = ? where ma =?";
+//
+//        try {
+//            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+//
+//            preparedStatement.setInt(1, thietbi.getLoaiTB());
+//            preparedStatement.setString(2, thietbi.getTenTB());
+//            preparedStatement.setInt(3, thietbi.getNSX());
+//            preparedStatement.setDate(4, thietbi.getNgaySX());
+//            preparedStatement.setInt(4, thietbi.getSoLuong());
+//            preparedStatement.setInt(5, thietbi.getGia());
+//            preparedStatement.setInt(6, thietbi.getTrangThai());
+//
+//            int rs = preparedStatement.executeUpdate();
+//            System.out.println(rs);
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
     public void deletethietbi(int mathietbi) {
         Connection connection = JDBCConnection.getJDBCConnection();
         String sql = "delete from thietbi where mathietbi= ?";

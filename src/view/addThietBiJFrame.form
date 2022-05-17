@@ -310,7 +310,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ex: 17-05-2002"/>
+        <Property name="text" type="java.lang.String" value="ex: 17/05/2002"/>
       </Properties>
     </Component>
   </SubComponents>

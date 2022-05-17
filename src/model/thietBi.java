@@ -11,21 +11,23 @@ import java.sql.Date;
  * @author Lenovo
  */
 public class thietBi {
+
     private String maTB;
     private String tenTB;
-    private String loaiTB;
-    private String NSX;
-//    private Date ngaySX;
+    private int loaiTB;
+    private int NSX;
+    private Date ngaySX;
     private int soLuong;
     private int gia;
-    private String trangThai;
+    private int trangThai;
+    private int id_phong;
 
-    public String getTrangThai() {
-        return trangThai;
+    public int getId_phong() {
+        return id_phong;
     }
 
-    public void setTrangThai(String trangThai) {
-        this.trangThai = trangThai;
+    public void setId_phong(int id_phong) {
+        this.id_phong = id_phong;
     }
 
     public String getMaTB() {
@@ -44,30 +46,37 @@ public class thietBi {
         this.tenTB = tenTB;
     }
 
-    public String getLoaiTB() {
+    public int getLoaiTB() {
         return loaiTB;
     }
 
-    public void setLoaiTB(String loaiTB) {
+    public void setLoaiTB(int loaiTB) {
         this.loaiTB = loaiTB;
     }
 
-    public String getNSX() {
+    public int getNSX() {
         return NSX;
     }
 
-    public void setNSX(String NSX) {
+    public void setNSX(int NSX) {
         this.NSX = NSX;
     }
 
+    public int getTrangThai() {
+        return trangThai;
+    }
 
-//    public Date getNgaySX() {
-//        return ngaySX;
-//    }
-//
-//    public void setNgaySX(Date ngaySX) {
-//        this.ngaySX = ngaySX;
-//    }
+    public void setTrangThai(int trangThai) {
+        this.trangThai = trangThai;
+    }
+
+    public Date getNgaySX() {
+        return ngaySX;
+    }
+
+    public void setNgaySX(Date ngaySX) {
+        this.ngaySX = ngaySX;
+    }
 
     public int getSoLuong() {
         return soLuong;
@@ -84,5 +93,5 @@ public class thietBi {
     public void setGia(int gia) {
         this.gia = gia;
     }
-   
+
 }

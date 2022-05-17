@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.6" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JDialog" name="jdlCapNhatTaiKhoan">
       <Properties>
@@ -1492,18 +1492,18 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Component id="jButton27" min="-2" pref="153" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jButton28" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jComboBoxCate" min="-2" pref="120" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jComboBoxTrangThai" min="-2" pref="120" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jButton8" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jScrollPane5" alignment="0" min="-2" pref="944" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane5" min="-2" pref="944" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
@@ -1527,15 +1527,19 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Component id="jPanel33" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" pref="20" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jButton27" alignment="1" max="32767" attributes="0"/>
-                              <Component id="jButton28" alignment="1" max="32767" attributes="0"/>
-                              <Component id="jComboBoxTrangThai" alignment="1" max="32767" attributes="0"/>
-                              <Component id="jComboBoxCate" alignment="1" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jButton8" alignment="3" max="32767" attributes="0"/>
-                                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="20" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jButton27" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jButton28" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jComboBoxTrangThai" alignment="1" max="32767" attributes="0"/>
+                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                      <Component id="jComboBoxCate" alignment="3" max="32767" attributes="0"/>
+                                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1583,7 +1587,11 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="17" style="1"/>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                         <Property name="rowHeight" type="int" value="30"/>
+                        <Property name="selectionModel" type="javax.swing.ListSelectionModel" editor="org.netbeans.modules.form.editors2.JTableSelectionModelEditor">
+                          <JTableSelectionModel selectionMode="0"/>
+                        </Property>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                         </Property>
@@ -1766,7 +1774,7 @@
                                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                   <Component id="jLabel18" pref="272" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                                  <Component id="jLabelTBDangSD1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelTBSS" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -1777,7 +1785,7 @@
                                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel18" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="jLabelTBDangSD1" alignment="3" max="32767" attributes="0"/>
+                                      <Component id="jLabelTBSS" alignment="3" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                               </Group>
@@ -1799,7 +1807,7 @@
                             <Property name="text" type="java.lang.String" value="THI&#x1ebe;T B&#x1eca; S&#x1eb4;N S&#xc0;NG:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabelTBDangSD1">
+                        <Component class="javax.swing.JLabel" name="jLabelTBSS">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Segoe UI" size="18" style="1"/>
@@ -1973,7 +1981,7 @@
                                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                   <Component id="jLabel17" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
-                                  <Component id="jLabelTBCanTL1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelTBQuaHan" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -1984,7 +1992,7 @@
                                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel17" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="jLabelTBCanTL1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelTBQuaHan" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                               </Group>
@@ -2006,7 +2014,7 @@
                             <Property name="text" type="java.lang.String" value="THI&#x1ebe;T B&#x1eca; C&#x1ea6;N QU&#xc1; H&#x1ea0;N:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabelTBCanTL1">
+                        <Component class="javax.swing.JLabel" name="jLabelTBQuaHan">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Segoe UI" size="18" style="1"/>
@@ -2053,6 +2061,7 @@
                     </Property>
                   </Properties>
                   <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboBoxCateItemStateChanged"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxCateActionPerformed"/>
                   </Events>
                   <AuxValues>
@@ -2074,22 +2083,12 @@
                     </Property>
                   </Properties>
                   <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboBoxTrangThaiItemStateChanged"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxTrangThaiActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButton8">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="15" style="1"/>
-                    </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\Lenovo\Desktop\QuanLiThietBiTrongTruong\src\img\outline_filter_alt_black_24dp.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="L&#x1ecd;c"/>
-                  </Properties>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane2">
                   <AuxValues>
@@ -2117,6 +2116,17 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="TH&#x1ed0;NG K&#xca; THI&#x1ebe;T B&#x1eca; T&#x1eea;NG PH&#xd2;NG"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel2">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="18" style="1"/>
+                    </Property>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="2" name="C:\Users\Lenovo\Desktop\QuanLiThietBiTrongTruong\src\img\outline_filter_alt_black_24dp.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="B&#x1ed8; L&#x1ecc;C"/>
                   </Properties>
                 </Component>
               </SubComponents>
