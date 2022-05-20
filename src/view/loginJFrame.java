@@ -5,6 +5,7 @@
 package view;
 
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -84,9 +85,22 @@ public class loginJFrame extends javax.swing.JFrame {
                 btnLogin2ActionPerformed(evt);
             }
         });
+        btnLogin2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnLogin2KeyPressed(evt);
+            }
+        });
 
         password.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         password.setName("password"); // NOI18N
+        password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwordKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                passwordKeyTyped(evt);
+            }
+        });
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -189,6 +203,97 @@ public class loginJFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnLogin2ActionPerformed
 
+    private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            String taikhoan = username.getText();
+            String matkhau = new String(password.getPassword());
+
+            StringBuilder sb = new StringBuilder();
+
+            if ((taikhoan.equals("")) | (matkhau.equals(""))) {
+                sb.append("Không được để trống!");
+            }
+            if (sb.length() > 0) {
+                JOptionPane.showMessageDialog(this, sb.toString(), "Thông báo", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            String url = "jdbc:mysql://localhost:3306/quanlithietbitrongtruong";
+            String user = "root";
+            String password = "";
+            java.sql.Statement st;
+            ResultSet rs;
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection(url, user, password);
+                String sql = "select * from nhanvien where tenDangNhap= ? and matKhau=?";
+                PreparedStatement ps = con.prepareStatement(sql);
+                ps.setString(1, taikhoan);
+                ps.setString(2, matkhau);
+                rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    new TrangChuJFrame().setVisible(true);
+                    this.dispose();
+                    JOptionPane.showMessageDialog(this, "Đăng nhập thành công");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (Exception e) {
+
+            }
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordKeyPressed
+
+    private void btnLogin2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnLogin2KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            String taikhoan = username.getText();
+            String matkhau = new String(password.getPassword());
+
+            StringBuilder sb = new StringBuilder();
+
+            if ((taikhoan.equals("")) | (matkhau.equals(""))) {
+                sb.append("Không được để trống!");
+            }
+            if (sb.length() > 0) {
+                JOptionPane.showMessageDialog(this, sb.toString(), "Thông báo", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            String url = "jdbc:mysql://localhost:3306/quanlithietbitrongtruong";
+            String user = "root";
+            String password = "";
+            java.sql.Statement st;
+            ResultSet rs;
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection(url, user, password);
+                String sql = "select * from nhanvien where tenDangNhap= ? and matKhau=?";
+                PreparedStatement ps = con.prepareStatement(sql);
+                ps.setString(1, taikhoan);
+                ps.setString(2, matkhau);
+                rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    new TrangChuJFrame().setVisible(true);
+                    this.dispose();
+                    JOptionPane.showMessageDialog(this, "Đăng nhập thành công");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (Exception e) {
+
+            }
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLogin2KeyPressed
+
+    private void passwordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyTyped
+     
+    }//GEN-LAST:event_passwordKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -203,16 +308,24 @@ public class loginJFrame extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(loginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(loginJFrame.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(loginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(loginJFrame.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(loginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(loginJFrame.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(loginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(loginJFrame.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>

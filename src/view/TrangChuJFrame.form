@@ -1001,8 +1001,8 @@
                               <Component id="jPanel43" max="32767" attributes="0"/>
                               <Component id="jPanel8" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jPanel60" max="32767" attributes="0"/>
+                          <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                          <Component id="jPanel60" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1012,14 +1012,14 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jPanel60" max="32767" attributes="0"/>
+                              <Component id="jPanel60" pref="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jPanel43" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="287" max="32767" attributes="0"/>
+                          <EmptySpace pref="153" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1027,9 +1027,6 @@
               <SubComponents>
                 <Container class="javax.swing.JPanel" name="jPanel8">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="cc" green="cc" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder title="KHU TR&#x1af;&#x1edc;NG"/>
@@ -1056,21 +1053,22 @@
                                               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                                               <Component id="jButton16" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel36" max="32767" attributes="0"/>
-                                                  <Component id="jLabel37" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="jTextField3" max="32767" attributes="0"/>
                                               </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="jTextField3" pref="366" max="32767" attributes="0"/>
-                                                  <Component id="jTextField1" max="32767" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jLabel36" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="jTextField1" min="-2" pref="385" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="73" max="32767" attributes="0"/>
+                              <EmptySpace pref="48" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1112,8 +1110,8 @@
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="2" rowCount="4">
-                                <Column editable="true" title="maViTri" type="java.lang.Object"/>
-                                <Column editable="true" title="tenViTri" type="java.lang.Object"/>
+                                <Column editable="true" title="M&#xe3; Khu" type="java.lang.Object"/>
+                                <Column editable="true" title="T&#xea;n Khu" type="java.lang.Object"/>
                               </Table>
                             </Property>
                           </Properties>
@@ -1122,12 +1120,12 @@
                     </Container>
                     <Component class="javax.swing.JLabel" name="jLabel36">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="M&#xe3; V&#x1ecb; Tr&#xed;"/>
+                        <Property name="text" type="java.lang.String" value="M&#xe3; Khu"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel37">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="T&#xea;n V&#x1ecb; Tr&#xed;"/>
+                        <Property name="text" type="java.lang.String" value="T&#xea;n Khu"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField1">
@@ -1158,9 +1156,6 @@
                 </Container>
                 <Container class="javax.swing.JPanel" name="jPanel43">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="cc" green="ff" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder title="LO&#x1ea0;I PH&#xd2;NG"/>
@@ -1182,7 +1177,14 @@
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jScrollPane7" min="-2" pref="438" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jScrollPane7" min="-2" pref="438" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                                              <Component id="jTextField6" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
@@ -1195,10 +1197,7 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="1" attributes="0">
                                                   <Component id="jButton17" min="-2" max="-2" attributes="0"/>
-                                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
+                                                  <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                                           </Group>
@@ -1206,7 +1205,6 @@
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="jTextField4" max="32767" attributes="0"/>
                                           <Component id="jTextField5" pref="332" max="32767" attributes="0"/>
-                                          <Component id="jTextField6" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
                                   </Group>
@@ -1257,8 +1255,8 @@
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="3" rowCount="4">
-                                <Column editable="true" title="M&#xe3;  Ph&#xf2;ng" type="java.lang.Object"/>
-                                <Column editable="true" title="T&#xea;n  Ph&#xf2;ng" type="java.lang.Object"/>
+                                <Column editable="true" title="M&#xe3; Lo&#x1ea1;i Ph&#xf2;ng" type="java.lang.Object"/>
+                                <Column editable="true" title="T&#xea;n Lo&#x1ea1;i Ph&#xf2;ng" type="java.lang.Object"/>
                                 <Column editable="true" title="Di&#x1ec7;n T&#xed;ch" type="java.lang.Object"/>
                               </Table>
                             </Property>
@@ -1268,12 +1266,12 @@
                     </Container>
                     <Component class="javax.swing.JLabel" name="jLabel38">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="M&#xe3;  Ph&#xf2;ng"/>
+                        <Property name="text" type="java.lang.String" value="M&#xe3; Lo&#x1ea1;i Ph&#xf2;ng"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel42">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="T&#xea;n  Ph&#xf2;ng"/>
+                        <Property name="text" type="java.lang.String" value="T&#xea;n Lo&#x1ea1;i Ph&#xf2;ng"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel43">
@@ -1306,9 +1304,6 @@
                 </Container>
                 <Container class="javax.swing.JPanel" name="jPanel60">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="cc" type="rgb"/>
-                    </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder title="PH&#xd2;NG H&#x1ecc;C"/>
@@ -1324,17 +1319,19 @@
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="jLabel68" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel69" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel70" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel71" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel67" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTextField7" alignment="0" pref="286" max="32767" attributes="0"/>
+                                  <Component id="jTextField7" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jTextField19" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jTextField20" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jTextField21" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextField22" alignment="0" pref="286" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                              <EmptySpace min="88" pref="88" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="jButton21" max="32767" attributes="0"/>
@@ -1347,7 +1344,7 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane8" pref="772" max="32767" attributes="0"/>
+                              <Component id="jScrollPane8" pref="673" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1375,13 +1372,18 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel70" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTextField21" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jButton23" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel71" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextField22" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="jScrollPane8" min="-2" pref="354" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1399,6 +1401,11 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel69">
                       <Properties>
+                        <Property name="text" type="java.lang.String" value="M&#xe3; Khu"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel70">
+                      <Properties>
                         <Property name="text" type="java.lang.String" value="Lo&#x1ea1;i Ph&#xf2;ng"/>
                       </Properties>
                     </Component>
@@ -1415,6 +1422,8 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField21">
                     </Component>
+                    <Component class="javax.swing.JTextField" name="jTextField22">
+                    </Component>
                     <Container class="javax.swing.JScrollPane" name="jScrollPane8">
                       <AuxValues>
                         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -1425,11 +1434,12 @@
                         <Component class="javax.swing.JTable" name="jTable8">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="4" rowCount="4">
+                              <Table columnCount="5" rowCount="4">
                                 <Column editable="true" title="phongHoc" type="java.lang.Object"/>
                                 <Column editable="true" title="tenPhongHoc" type="java.lang.Object"/>
-                                <Column editable="true" title="loaiPhong" type="java.lang.Object"/>
-                                <Column editable="true" title="soLuong" type="java.lang.Object"/>
+                                <Column editable="true" title="soLuongSinhVien" type="java.lang.Object"/>
+                                <Column editable="true" title="maLoaiPhong" type="java.lang.Object"/>
+                                <Column editable="true" title="maPhongHoc" type="java.lang.Object"/>
                               </Table>
                             </Property>
                           </Properties>
@@ -1517,7 +1527,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Component id="jPanel33" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="104" max="32767" attributes="0"/>
+                          <EmptySpace pref="20" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jButton27" alignment="1" max="32767" attributes="0"/>
@@ -1547,6 +1557,9 @@
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="15" style="1"/>
+                    </Property>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="2" name="C:\Users\Lenovo\Desktop\QuanLiThietBiTrongTruong\src\img\outline_add_to_queue_black_24dp.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Nh&#x1ead;p thi&#x1ebf;t b&#x1ecb;"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -1651,6 +1664,9 @@
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="2" name="C:\Users\Lenovo\Desktop\QuanLiThietBiTrongTruong\src\img\outline_computer_white_24dp.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="T&#x1ed4;NG S&#x1ed0; THI&#x1ebe;T B&#x1eca;:"/>
                           </Properties>
                         </Component>
@@ -1718,6 +1734,9 @@
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="2" name="C:\Users\Lenovo\Desktop\QuanLiThietBiTrongTruong\src\img\outline_ondemand_video_white_24dp.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="THI&#x1ebe;T B&#x1eca; &#x110;ANG S&#x1eec; D&#x1ee4;NG:"/>
                           </Properties>
                         </Component>
@@ -1781,6 +1800,9 @@
                             </Property>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="2" name="C:\Users\Lenovo\Desktop\QuanLiThietBiTrongTruong\src\img\outline_screen_search_desktop_white_24dp.png"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="THI&#x1ebe;T B&#x1eca; S&#x1eb4;N S&#xc0;NG:"/>
                           </Properties>
@@ -1849,6 +1871,9 @@
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="2" name="C:\Users\Lenovo\Desktop\QuanLiThietBiTrongTruong\src\img\outline_screen_share_white_24dp.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="THI&#x1ebe;T B&#x1eca; C&#x1ea6;N THANH L&#xcd;:"/>
                           </Properties>
                         </Component>
@@ -1916,6 +1941,9 @@
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="2" name="C:\Users\Lenovo\Desktop\QuanLiThietBiTrongTruong\src\img\outline_browser_updated_white_24dp.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="THI&#x1ebe;T B&#x1eca; H&#x1af; H&#x1ece;NG:"/>
                           </Properties>
                         </Component>
@@ -1980,6 +2008,9 @@
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="2" name="C:\Users\Lenovo\Desktop\QuanLiThietBiTrongTruong\src\img\outline_cancel_presentation_white_24dp.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="THI&#x1ebe;T B&#x1eca; C&#x1ea6;N QU&#xc1; H&#x1ea0;N:"/>
                           </Properties>
                         </Component>
@@ -2002,6 +2033,9 @@
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="15" style="1"/>
+                    </Property>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="2" name="C:\Users\Lenovo\Desktop\QuanLiThietBiTrongTruong\src\img\outline_sync_black_24dp.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="L&#xe0;m m&#x1edb;i"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -2088,6 +2122,9 @@
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="18" style="1"/>
+                    </Property>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="2" name="C:\Users\Lenovo\Desktop\QuanLiThietBiTrongTruong\src\img\outline_filter_alt_black_24dp.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="B&#x1ed8; L&#x1ecc;C"/>
                   </Properties>
@@ -2273,7 +2310,7 @@
                                               <Component id="jButton24" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="jButton25" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace pref="448" max="32767" attributes="0"/>
+                                          <EmptySpace pref="362" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -2376,7 +2413,7 @@
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <EmptySpace min="0" pref="877" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="798" max="32767" attributes="0"/>
                               </Group>
                             </DimensionLayout>
                           </Layout>
