@@ -34,7 +34,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         initComponents();
         deviceService = new deviceService();
 
-        DefaultTableModel defaultTableModel = new DefaultTableModel();
+        defaultTableModel = new DefaultTableModel();
         DefaultTableModel defaultTableModel1 = new DefaultTableModel();
 
         jTable1.setModel(defaultTableModel1);
@@ -121,7 +121,8 @@ public class TrangChuJFrame extends javax.swing.JFrame {
     private void setTableData(List<thietBi> devices) {
         for (thietBi thietBi : devices) {
             defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
-                thietBi.getSoLuong(), thietBi.getGia(), thietBi.getLoaiTB(), thietBi.getNSX(), thietBi.getId_phong(), thietBi.getTrangThai()});
+                thietBi.getSoLuong(), thietBi.getGia(), thietBi.getLoaiTB(), thietBi.getNSX(), 
+                thietBi.getId_phong(), thietBi.getTrangThai()});
         }
     }
 
@@ -1120,7 +1121,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
 
         jtableDevice.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jtableDevice.setFont(new java.awt.Font("Segoe UI", 1, 17)); // NOI18N
-        jtableDevice.setEnabled(false);
+        jtableDevice.setFocusTraversalPolicyProvider(true);
         jtableDevice.setRowHeight(30);
         jtableDevice.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane5.setViewportView(jtableDevice);
@@ -1875,7 +1876,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
         defaultTableModel.setRowCount(0);
-        //setTableData(deviceService.getAllthietbi());
+        setTableData(deviceService.getAllthietbi());
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void jComboBoxTrangThaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTrangThaiActionPerformed

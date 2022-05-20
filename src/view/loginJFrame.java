@@ -163,7 +163,7 @@ public class loginJFrame extends javax.swing.JFrame {
             return;
         }
 
-        String url = "jdbc:mysql://localhost:3306/phongmay";
+        String url = "jdbc:mysql://localhost:3306/quanlithietbitrongtruong";
         String user = "root";
         String password = "";
         java.sql.Statement st;
@@ -171,7 +171,7 @@ public class loginJFrame extends javax.swing.JFrame {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(url, user, password);
-            String sql = "select * from nguoidung where tdn= ? and pass=?";
+            String sql = "select * from nhanvien where tenDangNhap= ? and matKhau=?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, taikhoan);
             ps.setString(2, matkhau);
