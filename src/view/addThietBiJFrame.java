@@ -265,11 +265,13 @@ public class addThietBiJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+
         try {
             new TrangChuJFrame().setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(addThietBiJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBackActionPerformed

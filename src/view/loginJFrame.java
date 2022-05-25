@@ -4,13 +4,11 @@
  */
 package view;
 
-import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -194,7 +192,6 @@ public class loginJFrame extends javax.swing.JFrame {
             if (rs.next()) {
                 new TrangChuJFrame().setVisible(true);
                 this.dispose();
-                JOptionPane.showMessageDialog(this, "Đăng nhập thành công");
             } else {
                 JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng!", "Thông báo", JOptionPane.ERROR_MESSAGE);
             }
@@ -235,7 +232,6 @@ public class loginJFrame extends javax.swing.JFrame {
                 if (rs.next()) {
                     new TrangChuJFrame().setVisible(true);
                     this.dispose();
-                    JOptionPane.showMessageDialog(this, "Đăng nhập thành công");
                 } else {
                     JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng!", "Thông báo", JOptionPane.ERROR_MESSAGE);
                 }
@@ -278,7 +274,6 @@ public class loginJFrame extends javax.swing.JFrame {
                 if (rs.next()) {
                     new TrangChuJFrame().setVisible(true);
                     this.dispose();
-                    JOptionPane.showMessageDialog(this, "Đăng nhập thành công");
                 } else {
                     JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng!", "Thông báo", JOptionPane.ERROR_MESSAGE);
                 }

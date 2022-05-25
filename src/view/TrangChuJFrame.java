@@ -13,10 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import model.room;
 import model.thietBi;
 import service.deviceService;
+import service.roomService;
 
 /**
  *
@@ -25,19 +26,21 @@ import service.deviceService;
 public class TrangChuJFrame extends javax.swing.JFrame {
 
     deviceService deviceService;
+    roomService roomService;
+
     DefaultTableModel defaultTableModel;
-    DefaultTableModel dfTB;
+    DefaultTableModel defaultTableModelRoom;
+
     List<String> listCate = new ArrayList<>();
     List<String> listTT = new ArrayList<>();
 
     public TrangChuJFrame() throws SQLException {
         initComponents();
         deviceService = new deviceService();
+        roomService = new roomService();
 
         defaultTableModel = new DefaultTableModel();
-        DefaultTableModel defaultTableModel1 = new DefaultTableModel();
-
-        jTable1.setModel(defaultTableModel1);
+        defaultTableModelRoom = new DefaultTableModel();
 
         jtableDevice.setModel(defaultTableModel);
         defaultTableModel.addColumn("Mã thiết bị");
@@ -50,14 +53,24 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         defaultTableModel.addColumn("Phòng");
         defaultTableModel.addColumn("Trạng thái");
 
+        jTableRoom.setModel(defaultTableModelRoom);
+        defaultTableModelRoom.addColumn("Mã phòng");
+        defaultTableModelRoom.addColumn("Tên phòng");
+        defaultTableModelRoom.addColumn("Vị trí");
+        defaultTableModelRoom.addColumn("Số lượng TB");
+
         List<thietBi> devices = deviceService.getAllthietbi();
+        List<room> room = roomService.getAllroom();
 
         for (thietBi thietBi : devices) {
             defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
-                thietBi.getSoLuong(), thietBi.getGia(), thietBi.getLoaiTB(), thietBi.getNSX(), thietBi.getId_phong(),
+                thietBi.getSoLuong(), thietBi.getGia() + " VNĐ", thietBi.getLoaiTB(), thietBi.getNSX(),
+                deviceService.viewPhong(thietBi.getId_phong()),
                 deviceService.viewTT(thietBi.getTrangThai())});
-            defaultTableModel1.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
-                thietBi.getSoLuong(), thietBi.getGia(), thietBi.getLoaiTB(), thietBi.getNSX(), thietBi.getId_phong(), thietBi.getTrangThai()});
+        }
+        for (room r : room) {
+            defaultTableModelRoom.addRow(new Object[]{r.getMaPhong(), r.getTenPhong(),
+                roomService.showNameKhu(r.getMaViTri()), roomService.countTb(r.getMaPhong())});
         }
 
         int sumTB = deviceService.sumTB();
@@ -121,7 +134,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
     private void setTableData(List<thietBi> devices) {
         for (thietBi thietBi : devices) {
             defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
-                thietBi.getSoLuong(), thietBi.getGia(), thietBi.getLoaiTB(), thietBi.getNSX(), 
+                thietBi.getSoLuong(), thietBi.getGia() + " VNĐ", thietBi.getLoaiTB(), thietBi.getNSX(),
                 thietBi.getId_phong(), thietBi.getTrangThai()});
         }
     }
@@ -255,9 +268,11 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         jComboBoxCate = new javax.swing.JComboBox<>();
         jComboBoxTrangThai = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableRoom = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jTextFieldSearch = new javax.swing.JTextField();
+        jButton8 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel41 = new javax.swing.JPanel();
         jTabbedPane7 = new javax.swing.JTabbedPane();
@@ -1102,7 +1117,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Quản Lý Phòng", jPanel5);
@@ -1120,7 +1135,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         });
 
         jtableDevice.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jtableDevice.setFont(new java.awt.Font("Segoe UI", 1, 17)); // NOI18N
+        jtableDevice.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jtableDevice.setFocusTraversalPolicyProvider(true);
         jtableDevice.setRowHeight(30);
         jtableDevice.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -1379,7 +1394,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableRoom.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -1390,8 +1405,8 @@ public class TrangChuJFrame extends javax.swing.JFrame {
 
             }
         ));
-        jTable1.setRowHeight(30);
-        jScrollPane2.setViewportView(jTable1);
+        jTableRoom.setRowHeight(30);
+        jScrollPane2.setViewportView(jTableRoom);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -1400,6 +1415,15 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\QuanLiThietBiTrongTruong\\src\\img\\outline_filter_alt_black_24dp.png")); // NOI18N
         jLabel2.setText("BỘ LỌC");
+
+        jTextFieldSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldSearchKeyReleased1(evt);
+            }
+        });
+
+        jButton8.setBackground(new java.awt.Color(0, 123, 255));
+        jButton8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\QuanLiThietBiTrongTruong_1_1_1\\src\\img\\outline_search_white_24dp.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -1410,17 +1434,22 @@ public class TrangChuJFrame extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 944, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
+                                    .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton28)))
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton28)
+                                .addComponent(jTextFieldSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jComboBoxCate, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBoxTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 944, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jComboBoxTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
@@ -1436,21 +1465,27 @@ public class TrangChuJFrame extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton27, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton28, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jComboBoxTrangThai, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBoxCate)
-                            .addComponent(jLabel2))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(7, 7, 7))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButton8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBoxCate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jTextFieldSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton27)
+                            .addComponent(jButton28))))
                 .addGap(25, 25, 25))
         );
 
@@ -1556,7 +1591,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
                 .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton24)
                     .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(362, Short.MAX_VALUE))
+                .addContainerGap(364, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel49Layout = new javax.swing.GroupLayout(jPanel49);
@@ -1586,7 +1621,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
         );
         jPanel46Layout.setVerticalGroup(
             jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 798, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
 
         jTabbedPane7.addTab("Xem Chi Tiết", jPanel46);
@@ -1911,10 +1946,10 @@ public class TrangChuJFrame extends javax.swing.JFrame {
 
             for (thietBi thietBi : devices) {
                 defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
-                    thietBi.getSoLuong(), thietBi.getGia(),
+                    thietBi.getSoLuong(), thietBi.getGia() + " VNĐ",
                     deviceService.viewLTB(thietBi.getLoaiTB()),
                     deviceService.viewNSX(thietBi.getNSX()),
-                    thietBi.getId_phong(),
+                    deviceService.viewPhong(thietBi.getId_phong()),
                     deviceService.viewTT(thietBi.getTrangThai())
                 }
                 );
@@ -1937,10 +1972,10 @@ public class TrangChuJFrame extends javax.swing.JFrame {
 
                 for (thietBi thietBi : devices) {
                     defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
-                        thietBi.getSoLuong(), thietBi.getGia(),
+                        thietBi.getSoLuong(), thietBi.getGia() + " VNĐ",
                         deviceService.viewLTB(thietBi.getLoaiTB()),
                         deviceService.viewNSX(thietBi.getNSX()),
-                        thietBi.getId_phong(),
+                        deviceService.viewPhong(thietBi.getId_phong()),
                         deviceService.viewTT(thietBi.getTrangThai())
                     }
                     );
@@ -1962,7 +1997,10 @@ public class TrangChuJFrame extends javax.swing.JFrame {
 
                     for (thietBi thietBi : devices) {
                         defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
-                            thietBi.getSoLuong(), thietBi.getGia(), thietBi.getLoaiTB(), thietBi.getNSX(), thietBi.getId_phong(),
+                            thietBi.getSoLuong(), thietBi.getGia() + " VNĐ",
+                            deviceService.viewLTB(thietBi.getLoaiTB()),
+                            deviceService.viewNSX(thietBi.getNSX()),
+                            deviceService.viewPhong(thietBi.getId_phong()),
                             deviceService.viewTT(thietBi.getTrangThai())});
                     }
                 } else {
@@ -1981,10 +2019,10 @@ public class TrangChuJFrame extends javax.swing.JFrame {
 
                     for (thietBi thietBi : devices) {
                         defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
-                            thietBi.getSoLuong(), thietBi.getGia(),
+                            thietBi.getSoLuong(), thietBi.getGia() + " VNĐ",
                             deviceService.viewLTB(thietBi.getLoaiTB()),
                             deviceService.viewNSX(thietBi.getNSX()),
-                            thietBi.getId_phong(),
+                            deviceService.viewPhong(thietBi.getId_phong()),
                             deviceService.viewTT(thietBi.getTrangThai())
                         }
                         );
@@ -2017,10 +2055,10 @@ public class TrangChuJFrame extends javax.swing.JFrame {
 
             for (thietBi thietBi : devices) {
                 defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
-                    thietBi.getSoLuong(), thietBi.getGia(),
+                    thietBi.getSoLuong(), thietBi.getGia() + " vnđ",
                     deviceService.viewLTB(thietBi.getLoaiTB()),
                     deviceService.viewNSX(thietBi.getNSX()),
-                    thietBi.getId_phong(),
+                    deviceService.viewPhong(thietBi.getId_phong()),
                     deviceService.viewTT(thietBi.getTrangThai())
                 }
                 );
@@ -2043,10 +2081,10 @@ public class TrangChuJFrame extends javax.swing.JFrame {
 
                 for (thietBi thietBi : devices) {
                     defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
-                        thietBi.getSoLuong(), thietBi.getGia(),
+                        thietBi.getSoLuong(), thietBi.getGia() + " VNĐ",
                         deviceService.viewLTB(thietBi.getLoaiTB()),
                         deviceService.viewNSX(thietBi.getNSX()),
-                        thietBi.getId_phong(),
+                        deviceService.viewPhong(thietBi.getId_phong()),
                         deviceService.viewTT(thietBi.getTrangThai())
                     }
                     );
@@ -2068,10 +2106,10 @@ public class TrangChuJFrame extends javax.swing.JFrame {
 
                     for (thietBi thietBi : devices) {
                         defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
-                            thietBi.getSoLuong(), thietBi.getGia(),
+                            thietBi.getSoLuong(), thietBi.getGia() + " VNĐ",
                             deviceService.viewLTB(thietBi.getLoaiTB()),
                             deviceService.viewNSX(thietBi.getNSX()),
-                            thietBi.getId_phong(),
+                            deviceService.viewPhong(thietBi.getId_phong()),
                             deviceService.viewTT(thietBi.getTrangThai())
                         }
                         );
@@ -2092,10 +2130,10 @@ public class TrangChuJFrame extends javax.swing.JFrame {
 
                     for (thietBi thietBi : devices) {
                         defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
-                            thietBi.getSoLuong(), thietBi.getGia(),
+                            thietBi.getSoLuong(), thietBi.getGia() + " VNĐ",
                             deviceService.viewLTB(thietBi.getLoaiTB()),
                             deviceService.viewNSX(thietBi.getNSX()),
-                            thietBi.getId_phong(),
+                            deviceService.viewPhong(thietBi.getId_phong()),
                             deviceService.viewTT(thietBi.getTrangThai())
                         }
                         );
@@ -2104,6 +2142,62 @@ public class TrangChuJFrame extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jComboBoxTrangThaiItemStateChanged
+
+    private void jTextFieldSearchKeyReleased1(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldSearchKeyReleased1
+        // TODO add your handling code here:
+        DefaultTableModel defaultTableModel = new DefaultTableModel();
+
+        String kitu = jTextFieldSearch.getText();
+
+        if (kitu == null) {
+            defaultTableModel.addColumn("Mã thiết bị");
+            defaultTableModel.addColumn("Tên thiết bị");
+            defaultTableModel.addColumn("Số lượng");
+            defaultTableModel.addColumn("Đơn giá");
+            defaultTableModel.addColumn("Loại thiết bị");
+            defaultTableModel.addColumn("Nhà sản xuất");
+            //defaultTableModel.addColumn("Ngày sản xuất");
+            defaultTableModel.addColumn("Phòng");
+            defaultTableModel.addColumn("Trạng thái");
+
+            List<thietBi> devices = deviceService.getAllthietbi();
+
+            for (thietBi thietBi : devices) {
+                defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
+                    thietBi.getSoLuong(), thietBi.getGia() + " VNĐ",
+                    deviceService.viewLTB(thietBi.getLoaiTB()),
+                    deviceService.viewNSX(thietBi.getNSX()),
+                    deviceService.viewPhong(thietBi.getId_phong()),
+                    deviceService.viewTT(thietBi.getTrangThai())
+                }
+                );
+            }
+        } else {
+
+            jtableDevice.setModel(defaultTableModel);
+            defaultTableModel.addColumn("Mã thiết bị");
+            defaultTableModel.addColumn("Tên thiết bị");
+            defaultTableModel.addColumn("Số lượng");
+            defaultTableModel.addColumn("Đơn giá");
+            defaultTableModel.addColumn("Loại thiết bị");
+            defaultTableModel.addColumn("Nhà sản xuất");
+            //defaultTableModel.addColumn("Ngày sản xuất");
+            defaultTableModel.addColumn("Phòng");
+            defaultTableModel.addColumn("Trạng thái");
+
+            List<thietBi> devices = deviceService.timTB2(kitu);
+            for (thietBi thietBi : devices) {
+                defaultTableModel.addRow(new Object[]{thietBi.getMaTB(), thietBi.getTenTB(),
+                    thietBi.getSoLuong(), thietBi.getGia() + " VNĐ",
+                    deviceService.viewLTB(thietBi.getLoaiTB()),
+                    deviceService.viewNSX(thietBi.getNSX()),
+                    deviceService.viewPhong(thietBi.getId_phong()),
+                    deviceService.viewTT(thietBi.getTrangThai())
+                }
+                );
+            }
+        }
+    }//GEN-LAST:event_jTextFieldSearchKeyReleased1
 
     public void TableDanhSachTaiKhoan() {
         defaultTableModel = new DefaultTableModel() {
@@ -2180,6 +2274,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JComboBox<String> jComboBoxCate;
@@ -2294,10 +2389,10 @@ public class TrangChuJFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane7;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable7;
     private javax.swing.JTable jTable8;
+    private javax.swing.JTable jTableRoom;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField20;
@@ -2308,6 +2403,7 @@ public class TrangChuJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextFieldSearch;
     private javax.swing.JDialog jdlCapNhatTaiKhoan;
     private javax.swing.JDialog jdlChiTietTaiKhoan;
     private javax.swing.JTable jtableDevice;

@@ -185,7 +185,7 @@ public class deviceDao {
 
     public int sumTBCanTL() throws SQLException {
         Connection connection = JDBCConnection.getJDBCConnection();
-        String sql = "SELECT count(maTB) FROM thietbi where id_trangThai =2";
+        String sql = "SELECT count(maTB) FROM thietbi where id_trangThai =5";
 
         int num = 0;
         try {
@@ -203,7 +203,7 @@ public class deviceDao {
 
     public int sumTBDangRanh() throws SQLException {
         Connection connection = JDBCConnection.getJDBCConnection();
-        String sql = "SELECT count(maTB) FROM thietbi where id_trangThai =0";
+        String sql = "SELECT count(maTB) FROM thietbi where id_trangThai = 2";
 
         int num = 0;
         try {
@@ -239,7 +239,7 @@ public class deviceDao {
 
     public int sumTBQuaHan() throws SQLException {
         Connection connection = JDBCConnection.getJDBCConnection();
-        String sql = "SELECT count(maTB) FROM thietbi where id_trangThai = 3";
+        String sql = "SELECT count(maTB) FROM thietbi where id_trangThai =3";
 
         int num = 0;
         try {
@@ -288,6 +288,25 @@ public class deviceDao {
 
             while (rs.next()) {
                 tt = rs.getString("tenNSX");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return tt;
+    }
+
+    public String viewPhong(int id) {
+        Connection connection = JDBCConnection.getJDBCConnection();
+        String sql = "SELECT tenPhong FROM phong where maPhong = ?";
+
+        String tt = null;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                tt = rs.getString("tenPhong");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -391,6 +410,34 @@ public class deviceDao {
 //            e.printStackTrace();
 //        }
 //    }
+    public List<thietBi> timTB2(String kitu){
+        List<thietBi> thietbis = new ArrayList<>();
+        Connection connection = JDBCConnection.getJDBCConnection();
+        String sql = "SELECT * FROM thietbi where tenTB like '%"+kitu+"%'";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                thietBi thietbi = new thietBi();
+
+                thietbi.setMaTB(rs.getString("maTB"));
+                thietbi.setLoaiTB(rs.getInt("id_loaiTB"));
+                thietbi.setTenTB(rs.getString("tenTB"));
+                thietbi.setNSX(rs.getInt("id_NSX"));
+                thietbi.setSoLuong(rs.getInt("soLuong"));
+                thietbi.setGia(rs.getInt("gia"));
+                thietbi.setId_phong(rs.getInt("id_phong"));
+                thietbi.setTrangThai(rs.getInt("id_trangThai"));
+
+                thietbis.add(thietbi);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return thietbis;
+    }
     public void deletethietbi(int mathietbi) {
         Connection connection = JDBCConnection.getJDBCConnection();
         String sql = "delete from thietbi where mathietbi= ?";
@@ -405,9 +452,5 @@ public class deviceDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    public static void main(String[] args) {
-
     }
 }
