@@ -61,7 +61,6 @@ public class addThietBiJFrame extends javax.swing.JFrame {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql1);
             ResultSet rs = preparedStatement.executeQuery();
-            List<String> listNSX = new ArrayList<>();
             List<String> listLoaiTB = new ArrayList<>();
 
             while (rs.next()) {
@@ -74,6 +73,7 @@ public class addThietBiJFrame extends javax.swing.JFrame {
 
         maLoaiTB.removeAllItems();
         for (String nsx : listLoaiTB) {
+            
             maLoaiTB.addItem(nsx);
         }
     }
@@ -266,11 +266,7 @@ public class addThietBiJFrame extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
 
-        try {
-            new TrangChuJFrame().setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(addThietBiJFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        new TrangChuJFrame(2).setVisible(true);
 
         this.dispose();
         // TODO add your handling code here:
@@ -280,8 +276,8 @@ public class addThietBiJFrame extends javax.swing.JFrame {
         thietbi.setMaTB(maTB.getText());
         thietbi.setTenTB(tenTB.getText());
 
-        thietbi.setLoaiTB(maLoaiTB.getSelectedIndex());
-        thietbi.setNSX(maNSX.getSelectedIndex());
+        thietbi.setLoaiTB(maLoaiTB.getSelectedIndex()+1);
+        thietbi.setNSX(maNSX.getSelectedIndex()+1);
         
 //        try {
 //            thietbi.setNgaySX((Date) new SimpleDateFormat("dd/MM/yyyy").parse(ngaySX.getText()));
@@ -298,16 +294,12 @@ public class addThietBiJFrame extends javax.swing.JFrame {
         int gia = Integer.parseInt(g);
         thietbi.setGia(gia);
 
-        thietbi.setTrangThai(0);
+        thietbi.setTrangThai(2);
         thietbi.setId_phong(0);
 
         deviceService.adddevice(thietbi);
 
-        try {
-            new TrangChuJFrame().setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(addThietBiJFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        new TrangChuJFrame(2).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAddProductActionPerformed
 
