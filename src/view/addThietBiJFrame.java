@@ -268,11 +268,7 @@ public class addThietBiJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-<<<<<<< HEAD
         new TrangChuJFrame(0, taikhoan).setVisible(true);
-=======
-        new TrangChuJFrame(0).setVisible(true);
->>>>>>> 1dbb2813b88c9bc88411789cc5f729ca132db34e
         this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBackActionPerformed
@@ -302,11 +298,7 @@ public class addThietBiJFrame extends javax.swing.JFrame {
 
         deviceService.adddevice(thietbi);
 
-<<<<<<< HEAD
         new TrangChuJFrame(0, taikhoan).setVisible(true);
-=======
-        new TrangChuJFrame(0).setVisible(true);
->>>>>>> 1dbb2813b88c9bc88411789cc5f729ca132db34e
         this.dispose();
     }//GEN-LAST:event_btnAddProductActionPerformed
 
