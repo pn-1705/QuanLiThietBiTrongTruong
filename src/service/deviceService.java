@@ -25,6 +25,10 @@ public class deviceService {
         return deviceDao.getAllthietbi();
     }
 
+    public List<thietBi> getDeviceRoom(int maPhong) {
+        return deviceDao.getDeviceRoom(maPhong);
+    }
+
     public List<thietBi> getFilterTB(int id_trangThai, int id_loaiTB) {
         return deviceDao.getFilterTB(id_trangThai, id_loaiTB);
     }
@@ -57,36 +61,45 @@ public class deviceService {
         deviceDao.addthietbi(device);
     }
 
-    public void deletedevice(int ma) {
+    public void deletedevice(String ma) {
         deviceDao.deletethietbi(ma);
     }
+    
+    public void returnKho2(String ma) {
+        deviceDao.returnKho2(ma);
+    }
+    
+    public void transferPhong(String ma, int phong) {
+        deviceDao.transferPhong(ma, phong);
+    }
 
-    public int sumTB() throws SQLException {
+    public int sumTB() {
         return deviceDao.sumTB();
 
     }
 
-    public int sumTBDangSD() throws SQLException {
+    public int sumTBDangSD() {
         return deviceDao.sumTBDangSD();
     }
 
-    public int sumTBCanTL() throws SQLException {
+    public int sumTBCanTL() {
         return deviceDao.sumTBCanTL();
     }
 
-    public int sumTBHuHong() throws SQLException {
+    public int sumTBHuHong() {
         return deviceDao.sumTBHuHong();
     }
 
-    public int sumTBQuaHan() throws SQLException {
+    public int sumTBQuaHan() {
         return deviceDao.sumTBQuaHan();
     }
 
-    public int sumTBDangRanh() throws SQLException {
+    public int sumTBDangRanh() {
         return deviceDao.sumTBDangRanh();
     }
 
     public List<thietBi> timTB2(String kitu) {
         return deviceDao.timTB2(kitu);
     }
+
 }

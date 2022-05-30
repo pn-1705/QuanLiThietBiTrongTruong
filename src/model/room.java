@@ -14,7 +14,15 @@ public class room {
 
     private int maPhong;
     private String tenPhong;
-    private String maViTri;
+    private int maViTri;
+
+    public int getMaViTri() {
+        return maViTri;
+    }
+
+    public void setMaViTri(int maViTri) {
+        this.maViTri = maViTri;
+    }
 
     public int getMaPhong() {
         return maPhong;
@@ -32,11 +40,4 @@ public class room {
         this.tenPhong = tenPhong;
     }
 
-    public String getMaViTri() {
-        return maViTri;
-    }
-
-    public void setMaViTri(String maViTri) {
-        this.maViTri = maViTri;
-    }
 }
