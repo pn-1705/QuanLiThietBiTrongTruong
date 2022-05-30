@@ -190,7 +190,11 @@ public class loginJFrame extends javax.swing.JFrame {
             rs = ps.executeQuery();
 
             if (rs.next()) {
+<<<<<<< HEAD
                 new TrangChuJFrame(0, taikhoan).setVisible(true);
+=======
+                new TrangChuJFrame(0).setVisible(true);
+>>>>>>> 1dbb2813b88c9bc88411789cc5f729ca132db34e
                 this.dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng!", "Thông báo", JOptionPane.ERROR_MESSAGE);
@@ -230,7 +234,11 @@ public class loginJFrame extends javax.swing.JFrame {
                 rs = ps.executeQuery();
 
                 if (rs.next()) {
+<<<<<<< HEAD
                     new TrangChuJFrame(0, taikhoan).setVisible(true);
+=======
+                    new TrangChuJFrame(0).setVisible(true);
+>>>>>>> 1dbb2813b88c9bc88411789cc5f729ca132db34e
                     this.dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng!", "Thông báo", JOptionPane.ERROR_MESSAGE);
@@ -272,7 +280,11 @@ public class loginJFrame extends javax.swing.JFrame {
                 rs = ps.executeQuery();
 
                 if (rs.next()) {
+<<<<<<< HEAD
                     new TrangChuJFrame(0, taikhoan).setVisible(true);
+=======
+                    new TrangChuJFrame(0).setVisible(true);
+>>>>>>> 1dbb2813b88c9bc88411789cc5f729ca132db34e
                     this.dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng!", "Thông báo", JOptionPane.ERROR_MESSAGE);

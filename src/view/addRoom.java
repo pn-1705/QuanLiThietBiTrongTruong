@@ -18,9 +18,14 @@ import service.roomService;
  *
  * @author Lenovo
  */
+<<<<<<< HEAD
 
 public class addRoom extends javax.swing.JFrame {
     String tk;
+=======
+public class addRoom extends javax.swing.JFrame {
+
+>>>>>>> 1dbb2813b88c9bc88411789cc5f729ca132db34e
     room room;
     roomService roomService;
     List<String> listKV = new ArrayList<>();
@@ -28,9 +33,15 @@ public class addRoom extends javax.swing.JFrame {
     /**
      * Creates new form addRoom
      */
+<<<<<<< HEAD
     public addRoom(String id) {
         initComponents();
         this.tk = id;
+=======
+    public addRoom() {
+        initComponents();
+        
+>>>>>>> 1dbb2813b88c9bc88411789cc5f729ca132db34e
         roomService = new roomService();
         room = new room();
         Connection connection = JDBCConnection.getJDBCConnection();
@@ -212,7 +223,11 @@ public class addRoom extends javax.swing.JFrame {
 
         roomService.adddRoom(room);
 
+<<<<<<< HEAD
         new TrangChuJFrame(1, tk).setVisible(true);
+=======
+        new TrangChuJFrame(1).setVisible(true);
+>>>>>>> 1dbb2813b88c9bc88411789cc5f729ca132db34e
         this.dispose();
     }//GEN-LAST:event_btnAddProductActionPerformed
 
@@ -224,7 +239,11 @@ public class addRoom extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+<<<<<<< HEAD
         new TrangChuJFrame(1, tk).setVisible(true);
+=======
+        new TrangChuJFrame(1).setVisible(true);
+>>>>>>> 1dbb2813b88c9bc88411789cc5f729ca132db34e
         this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBackActionPerformed
@@ -232,6 +251,40 @@ public class addRoom extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+<<<<<<< HEAD
+=======
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(addRoom.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(addRoom.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(addRoom.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(addRoom.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new addRoom().setVisible(true);
+            }
+        });
+    }
+>>>>>>> 1dbb2813b88c9bc88411789cc5f729ca132db34e
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddProduct;
