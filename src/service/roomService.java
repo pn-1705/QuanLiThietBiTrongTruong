@@ -41,7 +41,7 @@ public class roomService {
 //        return deviceDao.getFilterLTB(id_loaiTB);
 //    }
 //    
-    public String showNameKhu(String id){
+    public String showNameKhu(int id){
         return roomDao.showNameKhu(id);
     }
 //    
@@ -49,17 +49,17 @@ public class roomService {
 //        return deviceDao.viewLTB(id);
 //    }
 //    
-//    public String viewNSX(int id){
-//        return deviceDao.viewNSX(id);
-//    }
+    public String viewTenPhong1(int id){
+        return roomDao.viewTenPhong1(id);
+    }
 //
-//    public void adddevice(room device) {
-//        deviceDao.addroom(device);
-//    }
-//
-//    public void deletedevice(int ma) {
-//        deviceDao.deleteroom(ma);
-//    }
+    public void adddRoom(room room) {
+        roomDao.addRoom(room);
+    }
+
+    public void deleteRoom(int ma) {
+        roomDao.deleteRoom(ma);
+    }
 //
 //    public int sumTB() throws SQLException {
 //        return deviceDao.sumTB();

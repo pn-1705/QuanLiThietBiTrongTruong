@@ -9,13 +9,13 @@ package model;
  * @author anhqu
  */
 public class staff {
-     private String maNV;
+
+    private String maNV;
     private String tenNV;
-    //private String ngaySinh;
+    private String ngaySinh;
     private int gioiTinh;
     private String soDienThoai;
     private String diaChi;
-    private String maChucVu;
     private String tenDangNhap;
     private String matKhau;
 
@@ -59,14 +59,6 @@ public class staff {
         this.diaChi = diaChi;
     }
 
-    public String getMaChucVu() {
-        return maChucVu;
-    }
-
-    public void setMaChucVu(String maChucVu) {
-        this.maChucVu = maChucVu;
-    }
-
     public String getTenDangNhap() {
         return tenDangNhap;
     }
@@ -81,5 +73,13 @@ public class staff {
 
     public void setMatKhau(String matKhau) {
         this.matKhau = matKhau;
+    }
+
+    public String getNgaySinh() {
+        return ngaySinh;
+    }
+
+    public void setNgaySinh(String ngaySinh) {
+        this.ngaySinh = ngaySinh;
     }
 }

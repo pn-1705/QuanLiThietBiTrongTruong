@@ -34,8 +34,11 @@ public class addThietBiJFrame extends javax.swing.JFrame {
     /**
      * Creates new form addThietBiJFrame
      */
-    public addThietBiJFrame() {
+    String taikhoan;
+
+    public addThietBiJFrame(String id) {
         initComponents();
+        this.taikhoan = id;
         deviceService = new deviceService();
         thietbi = new thietBi();
         Connection connection = JDBCConnection.getJDBCConnection();
@@ -61,7 +64,6 @@ public class addThietBiJFrame extends javax.swing.JFrame {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql1);
             ResultSet rs = preparedStatement.executeQuery();
-            List<String> listNSX = new ArrayList<>();
             List<String> listLoaiTB = new ArrayList<>();
 
             while (rs.next()) {
@@ -74,6 +76,7 @@ public class addThietBiJFrame extends javax.swing.JFrame {
 
         maLoaiTB.removeAllItems();
         for (String nsx : listLoaiTB) {
+
             maLoaiTB.addItem(nsx);
         }
     }
@@ -265,13 +268,7 @@ public class addThietBiJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-
-        try {
-            new TrangChuJFrame().setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(addThietBiJFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+        new TrangChuJFrame(0, taikhoan).setVisible(true);
         this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBackActionPerformed
@@ -280,16 +277,14 @@ public class addThietBiJFrame extends javax.swing.JFrame {
         thietbi.setMaTB(maTB.getText());
         thietbi.setTenTB(tenTB.getText());
 
-        thietbi.setLoaiTB(maLoaiTB.getSelectedIndex());
-        thietbi.setNSX(maNSX.getSelectedIndex());
-        
+        thietbi.setLoaiTB(maLoaiTB.getSelectedIndex() + 1);
+        thietbi.setNSX(maNSX.getSelectedIndex() + 1);
+
 //        try {
 //            thietbi.setNgaySX((Date) new SimpleDateFormat("dd/MM/yyyy").parse(ngaySX.getText()));
 //        } catch (ParseException ex) {
 //            ex.printStackTrace();
 //        }
-
-
         String sl = soLuong.getText();
         int sL = Integer.parseInt(sl);
         thietbi.setSoLuong(sL);
@@ -298,16 +293,12 @@ public class addThietBiJFrame extends javax.swing.JFrame {
         int gia = Integer.parseInt(g);
         thietbi.setGia(gia);
 
-        thietbi.setTrangThai(0);
+        thietbi.setTrangThai(2);
         thietbi.setId_phong(0);
 
         deviceService.adddevice(thietbi);
 
-        try {
-            new TrangChuJFrame().setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(addThietBiJFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        new TrangChuJFrame(0, taikhoan).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAddProductActionPerformed
 
@@ -326,37 +317,37 @@ public class addThietBiJFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(addThietBiJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(addThietBiJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(addThietBiJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(addThietBiJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new addThietBiJFrame().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(addThietBiJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(addThietBiJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(addThietBiJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(addThietBiJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new addThietBiJFrame().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddProduct;

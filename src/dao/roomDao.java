@@ -32,7 +32,7 @@ public class roomDao {
 
                 r.setMaPhong(rs.getInt("maPhong"));
                 r.setTenPhong(rs.getString("tenPhong"));
-                r.setMaViTri(rs.getString("maViTri"));
+                r.setMaViTri(rs.getInt("maViTri"));
 
                 room.add(r);
             }
@@ -41,7 +41,8 @@ public class roomDao {
         }
         return room;
     }
-        public int countTB(int maPhong) {
+
+    public int countTB(int maPhong) {
         Connection connection = JDBCConnection.getJDBCConnection();
         String sql = "SELECT count(maTB) FROM thietbi where id_phong = ?";
 
@@ -269,14 +270,14 @@ public class roomDao {
 //        return num;
 //    }
 //
-    public String showNameKhu(String id) {
+    public String showNameKhu(int id) {
         Connection connection = JDBCConnection.getJDBCConnection();
         String sql = "SELECT tenVT FROM vitri where maViTri = ?";
 
         String tt = null;
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, id);
+            preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
@@ -290,24 +291,25 @@ public class roomDao {
         return tt;
     }
 //
-//    public String viewNSX(int id) {
-//        Connection connection = JDBCConnection.getJDBCConnection();
-//        String sql = "SELECT tenNSX FROM nhasanxuat where id = ?";
-//
-//        String tt = null;
-//        try {
-//            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-//            preparedStatement.setInt(1, id);
-//            ResultSet rs = preparedStatement.executeQuery();
-//
-//            while (rs.next()) {
-//                tt = rs.getString("tenNSX");
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return tt;
-//    }
+
+    public String viewTenPhong1(int id) {
+        Connection connection = JDBCConnection.getJDBCConnection();
+        String sql = "SELECT tenPhong FROM phong where maPhong = ?";
+
+        String tt = null;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                tt = rs.getString("tenPhong");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return tt;
+    }
 //
 //    public String viewLTB(int id) {
 //        Connection connection = JDBCConnection.getJDBCConnection();
@@ -358,30 +360,25 @@ public class roomDao {
 ////        return null;
 ////    }
 ////
-//    public void addthietbi(thietBi thietbi) {
-//        Connection connection = JDBCConnection.getJDBCConnection();
-//        String sql = "INSERT INTO thietbi(maTB, id_loaiTB, tenTB, id_NSX, soLuong, gia, id_phong, id_trangThai) VALUES (?,?,?,?,?,?,?,?)";
-//        try {
-//            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-//
-//            preparedStatement.setString(1, thietbi.getMaTB());
-//            preparedStatement.setInt(2, thietbi.getLoaiTB());
-//            preparedStatement.setString(3, thietbi.getTenTB());
-//            preparedStatement.setInt(4, thietbi.getNSX());
-//            //preparedStatement.setDate(5, thietbi.getNgaySX());
-//            preparedStatement.setInt(5, thietbi.getSoLuong());
-//            preparedStatement.setInt(6, thietbi.getGia());
-//            preparedStatement.setInt(7, thietbi.getId_phong());
-//            preparedStatement.setInt(8, thietbi.getTrangThai());
-//
-//            int rs = preparedStatement.executeUpdate();
-//            System.out.println(rs);
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
+
+    public void addRoom(room room) {
+        Connection connection = JDBCConnection.getJDBCConnection();
+        String sql = "INSERT INTO phong(maPhong, tenPhong, maViTri) VALUES (?,?,?)";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setInt(1, room.getMaPhong());
+            preparedStatement.setString(2, room.getTenPhong());
+            preparedStatement.setInt(3, room.getMaViTri());
+
+            int rs = preparedStatement.executeUpdate();
+            System.out.println(rs);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 
 //    public void updatethietbi(thietBi thietbi) {
 //        Connection connection = JDBCConnection.getJDBCConnection();
@@ -405,14 +402,14 @@ public class roomDao {
 //            e.printStackTrace();
 //        }
 //    }
-    public void deletethietbi(int mathietbi) {
+    public void deleteRoom(int ma) {
         Connection connection = JDBCConnection.getJDBCConnection();
-        String sql = "delete from thietbi where mathietbi= ?";
+        String sql = "delete from phong where maPhong= ?";
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-            preparedStatement.setInt(1, mathietbi);
+            preparedStatement.setInt(1, ma);
             int rs = preparedStatement.executeUpdate();
             System.out.println(rs);
 

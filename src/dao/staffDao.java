@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 import model.staff;
 
-
 /**
  *
  * @author anhqu
@@ -21,7 +20,6 @@ import model.staff;
 public class staffDao {
 
     public staff getNhanVien(String tenDangNhap) {
-        List<staff> nv = new ArrayList<>();
         Connection connection = JDBCConnection.getJDBCConnection();
         String sql = "SELECT * FROM nhanvien where tenDangNhap =?";
 
@@ -35,19 +33,52 @@ public class staffDao {
 
                 staff.setMaNV(rs.getString("maNV"));
                 staff.setTenNV(rs.getString("tenNV"));
-                //staff.setNgaySinh(rs.getString("ngaySinh"));
                 staff.setGioiTinh(rs.getInt("gioiTinh"));
                 staff.setSoDienThoai(rs.getString("sdt"));
+                staff.setNgaySinh(rs.getString("ngaySinh"));
                 staff.setDiaChi(rs.getString("diaChi"));
-                //staff.setMaChucVu(rs.getString("maChucVu"));
                 staff.setTenDangNhap(rs.getString("tenDangNhap"));
                 staff.setMatKhau(rs.getString("matKhau"));
-                nv.add(staff);
+
                 return staff;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public void updateNhanVien(staff staff, String taiKhoan) {
+        Connection connection = JDBCConnection.getJDBCConnection();
+        String sql = "UPDATE nhanvien SET tenNV = ?, ngaySinh = ?, sdt = ?, diaChi = ? WHERE tenDangNhap = ?";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1, staff.getTenNV());
+            preparedStatement.setString(2, staff.getNgaySinh());
+            preparedStatement.setString(3, staff.getSoDienThoai());
+            preparedStatement.setString(4, staff.getDiaChi());
+            preparedStatement.setString(5, taiKhoan);
+            int rs = preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void changePass(staff staff, String taiKhoan) {
+        Connection connection = JDBCConnection.getJDBCConnection();
+        String sql = "UPDATE nhanvien SET matKhau = ? WHERE tenDangNhap = ?";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1, staff.getMatKhau());
+            preparedStatement.setString(2, taiKhoan);
+            int rs = preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

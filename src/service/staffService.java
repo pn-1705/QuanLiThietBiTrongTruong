@@ -23,67 +23,14 @@ public class staffService {
     public staff viewAccount(String tdn) {
         return staffDao.getNhanVien(tdn);
     }
-//    public List<thietBi> getAllthietbi() {
-//        return staffDao.getAllthietbi();
-//    }
-//    
-//    public List<thietBi> getFilterTB(int id_trangThai, int id_loaiTB) {
-//        return staffDao.getFilterTB(id_trangThai, id_loaiTB);
-//    }
-//    
-//    public List<thietBi> getFilterTTTB(int id_trangThai) {
-//        return staffDao.getFilterTTTB(id_trangThai);
-//    }
-//    
-//    public List<thietBi> getFilterLTB(int id_loaiTB) {
-//        return staffDao.getFilterLTB(id_loaiTB);
-//    }
-//    
-//    public String viewTT(int id){
-//        return staffDao.viewTT(id);
-//    }
-//    
-//    public String viewLTB(int id){
-//        return staffDao.viewLTB(id);
-//    }
-//    
-//    public String viewNSX(int id){
-//        return staffDao.viewNSX(id);
-//    }
-//
-//    public void addstaff(thietBi staff) {
-//        staffDao.addthietbi(staff);
-//    }
-//
-//    public void deletestaff(int ma) {
-//        staffDao.deletethietbi(ma);
-//    }
-//
-//    public int sumTB() throws SQLException {
-//        return staffDao.sumTB();
-//
-//    }
-//
-//    public int sumTBDangSD() throws SQLException {
-//        return staffDao.sumTBDangSD();
-//    }
-//
-//    public int sumTBCanTL() throws SQLException {
-//        return staffDao.sumTBCanTL();
-//    }
-//
-//    public int sumTBHuHong() throws SQLException {
-//        return staffDao.sumTBHuHong();
-//    }
-//
-//    public int sumTBQuaHan() throws SQLException {
-//        return staffDao.sumTBQuaHan();
-//    }
-//
-//    public int sumTBDangRanh() throws SQLException {
-//        return staffDao.sumTBDangRanh();
-//    }
+    public void updateNhanVien1(staff staff, String tk) {
+        staffDao.updateNhanVien(staff,tk);
+    }
     public staff getById(String tenDangNhap){
         return staffDao.getNhanVien(tenDangNhap);
     }
+    public void changePass(staff staff, String tk) {
+        staffDao.changePass(staff,tk);
+    }
+    
 }
